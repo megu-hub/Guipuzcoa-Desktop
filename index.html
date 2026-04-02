@@ -18,6 +18,7 @@
 		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
 		crossorigin="anonymous">	</script>
 	<script src="js/carrusel.js"></script>
+	<script src="js/noticias.js"></script>
 </head>
 
 <body>
@@ -44,6 +45,12 @@
 		$(document).ready(function() {
 			const miCarrusel = new Carrusel("Guipuzcoa");
 			miCarrusel.getFotografias();
+
+			const noticias = new Noticias("Guipúzcoa");
+			noticias.buscar().then(datosJSON => {
+				const listaNoticias = noticias.procesarInformacion(datosJSON);
+				noticias.mostrarNoticias(listaNoticias);
+			})
 		});
 
 	</script>
