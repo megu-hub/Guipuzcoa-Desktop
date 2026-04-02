@@ -13,6 +13,11 @@
 	<link rel="icon" href="multimedia/icono.ico"/>
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous">	</script>
+	<script src="js/carrusel.js"></script>
 </head>
 
 <body>
@@ -32,8 +37,15 @@
 	
 	<main>
 
-	<h2>Inicio de Guipuzcoa-Desktop</h2>
 	
 	</main>
+
+	<script>
+		$(document).ready(function() {
+			const miCarrusel = new Carrusel("Guipuzcoa");
+			miCarrusel.getFotografias();
+		});
+
+	</script>
 </body>
 </html>
