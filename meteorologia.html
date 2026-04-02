@@ -13,6 +13,11 @@
 	<link rel="icon" href="multimedia/icono.ico"/>
 	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
 	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+	<script
+		src="https://code.jquery.com/jquery-3.7.1.min.js"
+		integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+		crossorigin="anonymous">	</script>
+	<script src="js/meteorologia.js"></script>
 </head>
 
 <body>
@@ -36,8 +41,15 @@
 
 	<main>
 
-	<h2>Meteorología de Guipuzcoa</h2>
+	<h2>Meteorología de Guipúzcoa</h2>
 	
 	</main>
+
+	<script>
+		let meteorologia = new Meteorologia("Guipúzcoa", 43.166667,  -2.166667);
+		meteorologia.getMeteorologia();
+		meteorologia.getPrevisiones();
+		
+	</script>
 </body>
 </html>
