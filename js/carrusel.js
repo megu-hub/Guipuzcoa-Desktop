@@ -5,38 +5,23 @@ class Carrusel {
     #actual;
     #maximo;
 
-    constructor(busqueda) {
+    constructor(busqueda, imagenes = []) {
         this.#busqueda = busqueda;
-        this.#actual = 0;
-        this.#maximo = 5;
-        this.fotos = [];
+        this.#actual   = 0;
+        this.#maximo   = 5;
+        this.fotos     = [];
+        this._imagenes = imagenes;
     }
 
     getFotografias() {
-        const flickrAPI = "https://www.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+        if (!this._imagenes.length) {
+            document.querySelector("main").innerHTML =
+                "<h2>No se han proporcionado imágenes locales.</h2>";
+            return;
+        }
 
-        $.getJSON(flickrAPI, {
-            tags: this.#busqueda,
-            tagmode: "any",
-            format: "json"
-        })
-        .done(data => {
-            this.procesarJSONFotografias(data);
-            this.mostrarFotografias();
-        })
-        .fail(() => {
-            $("main").html("<h2>No se pudieron obtener las imágenes de Flickr</h2>");
-        });
-    }
-
-    procesarJSONFotografias(jsonData) {
-        this.fotos = jsonData.items.slice(0, this.#maximo).map(item => ({
-            titulo: item.title,
-            url: item.media.m.replace("_m.jpg", "_z.jpg"),
-            enlace: item.link,
-            alt: item.title?.trim() || `Imagen del circuito de ${this.#busqueda}`  
-            // manejar en caso de que este vacio el titulo
-        }));
+        this.fotos = this._imagenes.slice(0, this.#maximo);
+        this.mostrarFotografias();
     }
 
     cambiarFotografia() {
@@ -53,17 +38,24 @@ class Carrusel {
     }
 
     insertarFoto(foto) {
-        const $img = $("main article img");
-        if ($img.length) {
-            $img.attr("src", foto.url).attr("alt", foto.alt);
+        const img = document.querySelector("main article img");
+        if (img) {
+            img.src = foto.url;
+            img.alt = foto.alt;
         } else {
-            const $article = $(`
-                <article>
-                    <h2>Imágenes de ${this.#busqueda}</h2>
-                    <img src="${foto.url}" alt="${foto.alt}">
-                </article>
-            `);
-            $("main").prepend($article);
-        }   
+            const article = document.createElement("article");
+            article.innerHTML = `
+                <h2>Imágenes de ${this.#busqueda}</h2>
+                <img src="${foto.url}" alt="${foto.alt}">
+            `;
+            document.querySelector("main").prepend(article);
+        }
+    }
+
+    detener() {
+        if (this._timer) {
+            clearInterval(this._timer);
+            this._timer = null;
+        }
     }
 }
