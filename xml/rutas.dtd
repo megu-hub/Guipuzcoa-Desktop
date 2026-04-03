@@ -1,0 +1,75 @@
+<!DOCTYPE rutas [
+<!ELEMENT rutas (ruta+)>
+<!ATTLIST rutas
+    provincia   CDATA   #REQUIRED
+    pais        CDATA   #REQUIRED
+    region      CDATA   #REQUIRED
+>
+
+<!ELEMENT ruta (nombre, tipo, medioTransporte, fechaInicio?, horaInicio?,
+                duracion, agencia, descripcion, personasAdecuadas,
+                lugarInicio, direccionInicio, coordenadasInicio,
+                referencias, recomendacion, hitos)>
+<!ATTLIST ruta
+    id  ID  #REQUIRED
+>
+
+<!-- Datos generales de la ruta -->
+<!ELEMENT nombre            (#PCDATA)>
+<!ELEMENT tipo              (#PCDATA)>
+<!ELEMENT medioTransporte   (#PCDATA)>
+<!ELEMENT duracion          (#PCDATA)>
+<!ELEMENT agencia           (#PCDATA)>
+<!ELEMENT descripcion       (#PCDATA)>
+<!ELEMENT personasAdecuadas (#PCDATA)>
+<!ELEMENT lugarInicio       (#PCDATA)>
+<!ELEMENT direccionInicio   (#PCDATA)>
+<!ELEMENT recomendacion     (#PCDATA)>
+
+<!-- Fecha y hora de inicio (opcionales) -->
+<!ELEMENT fechaInicio (#PCDATA)>
+<!ATTLIST fechaInicio
+    opcional (true|false) "true"
+>
+<!ELEMENT horaInicio (#PCDATA)>
+<!ATTLIST horaInicio
+    opcional (true|false) "true"
+>
+
+<!-- Coordenadas geográficas -->
+<!ELEMENT coordenadasInicio (longitud, latitud, altitud)>
+<!ELEMENT coordenadas       (longitud, latitud, altitud)>
+<!ELEMENT longitud  (#PCDATA)>
+<!ELEMENT latitud   (#PCDATA)>
+<!ELEMENT altitud   (#PCDATA)>
+
+<!-- Referencias bibliográficas (mínimo 3) -->
+<!ELEMENT referencias (referencia, referencia, referencia, referencia*)>
+<!ELEMENT referencia (#PCDATA)>
+<!ATTLIST referencia
+    id CDATA #REQUIRED
+>
+
+<!-- Hitos de la ruta (mínimo 5) -->
+<!ELEMENT hitos (hito, hito, hito, hito, hito, hito*)>
+<!ELEMENT hito  (nombre, descripcion, coordenadas,
+                 distanciaDesdeAnterior, galeriaFotos, galeriaVideos?)>
+<!ATTLIST hito
+    id  ID  #REQUIRED
+>
+
+<!-- Distancia desde hito anterior -->
+<!ELEMENT distanciaDesdeAnterior (#PCDATA)>
+<!ATTLIST distanciaDesdeAnterior
+    unidades (km|m|mi) #REQUIRED
+>
+
+<!-- Galería de fotos (mínimo 1, máximo 5) -->
+<!ELEMENT galeriaFotos (foto, foto?, foto?, foto?, foto?)>
+<!ELEMENT foto (#PCDATA)>
+
+<!-- Galería de vídeos (opcional, máximo 3) -->
+<!ELEMENT galeriaVideos (video, video?, video?)>
+<!ELEMENT video (#PCDATA)>
+
+]>
