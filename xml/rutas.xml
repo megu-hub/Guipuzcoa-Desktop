@@ -9,7 +9,7 @@
 <!ELEMENT ruta (nombre, tipo, medioTransporte, fechaInicio?, horaInicio?,
                 duracion, agencia, descripcion, personasAdecuadas,
                 lugarInicio, direccionInicio, coordenadasInicio,
-                referencias, recomendacion, hitos,
+                referencias, recomendacion, hitos, puntosRuta,
                 planimetria, altimetria)>
 <!ATTLIST ruta
     id  ID  #REQUIRED
@@ -54,15 +54,22 @@
 <!ATTLIST distanciaDesdeAnterior
     unidades (km|m|mi) #REQUIRED
 >
-<!ELEMENT galeriaFotos (foto+)>
+<!ELEMENT galeriaFotos (foto, foto?, foto?, foto?, foto?)>
 <!ELEMENT foto (#PCDATA)>
 <!ATTLIST foto
     alt CDATA #REQUIRED
 >
-<!ELEMENT galeriaVideos (video+)>
+<!ELEMENT galeriaVideos (video, video?, video?)>
 <!ELEMENT video (#PCDATA)>
 <!ATTLIST video
     alt CDATA #REQUIRED
+>
+<!ELEMENT puntosRuta (punto+)>
+<!ELEMENT punto EMPTY>
+<!ATTLIST punto
+    longitud    CDATA   #REQUIRED
+    latitud     CDATA   #REQUIRED
+    altitud     CDATA   #IMPLIED
 >
 ]>
 
@@ -105,12 +112,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista panorámica del puerto de Getaria con barcos pesqueros">multimedia/R001/H001-01_puerto_panoramica.jpg</foto>
-          <foto alt="Isla de San Antón (el Ratón) vista desde el puerto de Getaria">multimedia/R001/H001-01_isla_raton.jpg</foto>
-          <foto alt="Barcos pesqueros amarrados en el puerto de Getaria">multimedia/R001/H001-01_barcos_pesqueros.jpg</foto>
+          <foto alt="Vista panorámica del puerto de Getaria con barcos pesqueros">../multimedia/R001/H001-01_puerto_panoramica.jpg</foto>
+          <foto alt="Isla de San Antón (el Ratón) vista desde el puerto de Getaria">../multimedia/R001/H001-01_isla_raton.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo del amanecer en el puerto de Getaria con actividad pesquera">multimedia/R001/H001-01_puerto_amanecer.mp4</video>
+          <video alt="Vídeo del amanecer en el puerto de Getaria con actividad pesquera">../multimedia/R001/H001-01_puerto_amanecer.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -124,11 +130,10 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">250</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">multimedia/R001/H001-02_museo_fachada.jpg</foto>
-          <foto alt="Exposición de vestidos originales de Balenciaga en el museo">multimedia/R001/H001-02_museo_exposicion.jpg</foto>
+          <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">../multimedia/R001/H001-02_museo_fachada.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de visita virtual a las salas del Museo Cristóbal Balenciaga">multimedia/R001/H001-02_museo_visita_virtual.mp4</video>
+          <video alt="Vídeo de visita virtual a las salas del Museo Cristóbal Balenciaga">../multimedia/R001/H001-02_museo_visita_virtual.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -142,9 +147,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.8</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">multimedia/R001/H001-03_malkorbe_aerea.jpg</foto>
-          <foto alt="Acantilados que flanquean la playa de Malkorbe en la costa vasca">multimedia/R001/H001-03_malkorbe_acantilados.jpg</foto>
-          <foto alt="Flora atlántica autóctona en los alrededores de la playa de Malkorbe">multimedia/R001/H001-03_malkorbe_flora.jpg</foto>
+          <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">../multimedia/R001/H001-03_malkorbe_aerea.jpg</foto>
+          <foto alt="Acantilados que flanquean la playa de Malkorbe en la costa vasca">../multimedia/R001/H001-03_malkorbe_acantilados.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -158,13 +162,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">multimedia/R001/H001-04_flysch_estratos.jpg</foto>
-          <foto alt="Vista del acantilado de flysch desde el nivel del mar">multimedia/R001/H001-04_flysch_acantilado.jpg</foto>
-          <foto alt="Panorámica aérea de los acantilados del Geoparque del Flysch de Zumaia">multimedia/R001/H001-04_flysch_panoramica.jpg</foto>
+          <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">../multimedia/R001/H001-04_flysch_estratos.jpg</foto>
+          <foto alt="Panorámica aérea de los acantilados del Geoparque del Flysch de Zumaia">../multimedia/R001/H001-04_flysch_panoramica.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Documental geológico sobre la formación y significado del flysch de Zumaia">multimedia/R001/H001-04_flysch_documental.mp4</video>
-          <video alt="Timelapse de las mareas en los acantilados del flysch de Zumaia">multimedia/R001/H001-04_flysch_timelapse.mp4</video>
+          <video alt="Documental geológico sobre la formación y significado del flysch de Zumaia">../multimedia/R001/H001-04_flysch_documental.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -178,12 +180,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">800</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">multimedia/R001/H001-05_itzurun_playa.jpg</foto>
-          <foto alt="Atardecer sobre la playa de Itzurun y los acantilados de Zumaia">multimedia/R001/H001-05_itzurun_atardecer.jpg</foto>
-          <foto alt="Vista aérea con dron de la playa de Itzurun y su entorno geológico">multimedia/R001/H001-05_itzurun_aerea.jpg</foto>
+          <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">../multimedia/R001/H001-05_itzurun_playa.jpg</foto>
+          <foto alt="Atardecer sobre la playa de Itzurun y los acantilados de Zumaia">../multimedia/R001/H001-05_itzurun_atardecer.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la playa de Itzurun y los acantilados de flysch">multimedia/R001/H001-05_itzurun_drone.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la playa de Itzurun y los acantilados de flysch">../multimedia/R001/H001-05_itzurun_drone.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -197,14 +198,43 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">500</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Exterior del Centro de Interpretación Algorri junto al puerto de Zumaia">multimedia/R001/H001-06_algorri_exterior.jpg</foto>
-          <foto alt="Sala de exposición interactiva del Centro Algorri sobre geología del flysch">multimedia/R001/H001-06_algorri_interior.jpg</foto>
+          <foto alt="Exterior del Centro de Interpretación Algorri junto al puerto de Zumaia">../multimedia/R001/H001-06_algorri_exterior.jpg</foto>
+          <foto alt="Sala de exposición interactiva del Centro Algorri sobre geología del flysch">../multimedia/R001/H001-06_algorri_interior.jpg</foto>
         </galeriaFotos>
       </hito>
     </hitos>
 
-    <planimetria>output/R001_planimetria.kml</planimetria>
-    <altimetria>output/R001_altimetria.svg</altimetria>
+    <puntosRuta>
+      <punto longitud="-2.2028" latitud="43.3001" altitud="5"/>
+      <punto longitud="-2.2035" latitud="43.2998" altitud="6"/>
+      <punto longitud="-2.2041" latitud="43.3010" altitud="12"/>
+      <punto longitud="-2.2055" latitud="43.3005" altitud="15"/>
+      <punto longitud="-2.2080" latitud="43.2995" altitud="22"/>
+      <punto longitud="-2.2110" latitud="43.2985" altitud="35"/>
+      <punto longitud="-2.2145" latitud="43.2975" altitud="48"/>
+      <punto longitud="-2.2175" latitud="43.2970" altitud="30"/>
+      <punto longitud="-2.2210" latitud="43.2965" altitud="10"/>
+      <punto longitud="-2.2245" latitud="43.2960" altitud="5"/>
+      <punto longitud="-2.2280" latitud="43.2967" altitud="3"/>
+      <punto longitud="-2.2310" latitud="43.2958" altitud="20"/>
+      <punto longitud="-2.2340" latitud="43.2945" altitud="45"/>
+      <punto longitud="-2.2370" latitud="43.2935" altitud="65"/>
+      <punto longitud="-2.2400" latitud="43.2928" altitud="78"/>
+      <punto longitud="-2.2430" latitud="43.2922" altitud="80"/>
+      <punto longitud="-2.2465" latitud="43.2918" altitud="75"/>
+      <punto longitud="-2.2500" latitud="43.2920" altitud="80"/>
+      <punto longitud="-2.2510" latitud="43.2912" altitud="60"/>
+      <punto longitud="-2.2520" latitud="43.2900" altitud="35"/>
+      <punto longitud="-2.2535" latitud="43.2892" altitud="12"/>
+      <punto longitud="-2.2549" latitud="43.2887" altitud="2"/>
+      <punto longitud="-2.2552" latitud="43.2889" altitud="5"/>
+      <punto longitud="-2.2555" latitud="43.2891" altitud="8"/>
+      <punto longitud="-2.2558" latitud="43.2893" altitud="9"/>
+      <punto longitud="-2.2561" latitud="43.2895" altitud="10"/>
+    </puntosRuta>
+
+    <planimetria>R001_planimetria.kml</planimetria>
+    <altimetria>R001_altimetria.svg</altimetria>
   </ruta>
 
 
@@ -245,12 +275,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">multimedia/R002/H002-01_plaza_panoramica.jpg</foto>
-          <foto alt="Pórticos y bares de la Plaza de la Constitución iluminados de noche">multimedia/R002/H002-01_plaza_noche.jpg</foto>
-          <foto alt="Detalle de los balcones numerados históricos de la Plaza de la Constitución">multimedia/R002/H002-01_balcones_numerados.jpg</foto>
+          <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">../multimedia/R002/H002-01_plaza_panoramica.jpg</foto>
+          <foto alt="Pórticos y bares de la Plaza de la Constitución iluminados de noche">../multimedia/R002/H002-01_plaza_noche.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo del ambiente veraniego en la Plaza de la Constitución durante la Semana Grande">multimedia/R002/H002-01_plaza_ambiente.mp4</video>
+          <video alt="Vídeo del ambiente veraniego en la Plaza de la Constitución durante la Semana Grande">../multimedia/R002/H002-01_plaza_ambiente.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -264,9 +293,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">150</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Fachada barroca churrigueresca de la Basílica de Santa María del Coro en Donostia">multimedia/R002/H002-02_basilica_fachada.jpg</foto>
-          <foto alt="Interior y altar mayor de la Basílica de Santa María del Coro">multimedia/R002/H002-02_basilica_interior.jpg</foto>
-          <foto alt="Detalle de las torres barrocas de la Basílica de Santa María del Coro">multimedia/R002/H002-02_basilica_torres.jpg</foto>
+          <foto alt="Fachada barroca churrigueresca de la Basílica de Santa María del Coro en Donostia">../multimedia/R002/H002-02_basilica_fachada.jpg</foto>
+          <foto alt="Interior y altar mayor de la Basílica de Santa María del Coro">../multimedia/R002/H002-02_basilica_interior.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -280,13 +308,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">200</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">multimedia/R002/H002-03_calle31_bares.jpg</foto>
-          <foto alt="Barra repleta de pintxos variados en un bar de la Calle 31 de Agosto">multimedia/R002/H002-03_calle31_barra.jpg</foto>
-          <foto alt="Pintxo gilda, el pintxo clásico de la gastronomía donostiarra">multimedia/R002/H002-03_pintxo_gilda.jpg</foto>
+          <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">../multimedia/R002/H002-03_calle31_bares.jpg</foto>
+          <foto alt="Barra repleta de pintxos variados en un bar de la Calle 31 de Agosto">../multimedia/R002/H002-03_calle31_barra.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de la elaboración de pintxos de autor en la Calle 31 de Agosto">multimedia/R002/H002-03_calle31_elaboracion.mp4</video>
-          <video alt="Vídeo del animado ambiente de tarde en los bares de pintxos de Donostia">multimedia/R002/H002-03_calle31_ambiente.mp4</video>
+          <video alt="Vídeo del animado ambiente de tarde en los bares de pintxos de Donostia">../multimedia/R002/H002-03_calle31_ambiente.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -300,9 +326,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">350</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Puestos de pescado fresco del Cantábrico en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_pescado.jpg</foto>
-          <foto alt="Verduras locales de las huertas de Tolosa en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_verduras.jpg</foto>
-          <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_idiazabal.jpg</foto>
+          <foto alt="Puestos de pescado fresco del Cantábrico en el Mercado de La Bretxa">../multimedia/R002/H002-04_bretxa_pescado.jpg</foto>
+          <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">../multimedia/R002/H002-04_bretxa_idiazabal.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -316,12 +341,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">700</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">multimedia/R002/H002-05_urgull_castillo.jpg</foto>
-          <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">multimedia/R002/H002-05_urgull_bahia.jpg</foto>
-          <foto alt="Estatua del Sagrado Corazón de Jesús en la cima del Monte Urgull">multimedia/R002/H002-05_urgull_sagrado_corazon.jpg</foto>
+          <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">../multimedia/R002/H002-05_urgull_castillo.jpg</foto>
+          <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">../multimedia/R002/H002-05_urgull_bahia.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo panorámica 360 grados desde la cima del Monte Urgull de San Sebastián">multimedia/R002/H002-05_urgull_panoramica360.mp4</video>
+          <video alt="Vídeo panorámica 360 grados desde la cima del Monte Urgull de San Sebastián">../multimedia/R002/H002-05_urgull_panoramica360.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -335,18 +359,45 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">900</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">multimedia/R002/H002-06_concha_aerea.jpg</foto>
-          <foto alt="Paseo marítimo de La Concha con bañistas en verano">multimedia/R002/H002-06_concha_paseo.jpg</foto>
-          <foto alt="Atardecer sobre la Bahía de La Concha con la isla de Santa Clara">multimedia/R002/H002-06_concha_atardecer.jpg</foto>
+          <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">../multimedia/R002/H002-06_concha_aerea.jpg</foto>
+          <foto alt="Atardecer sobre la Bahía de La Concha con la isla de Santa Clara">../multimedia/R002/H002-06_concha_atardecer.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la Playa de La Concha en verano">multimedia/R002/H002-06_concha_drone.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la Playa de La Concha en verano">../multimedia/R002/H002-06_concha_drone.mp4</video>
         </galeriaVideos>
       </hito>
     </hitos>
 
-    <planimetria>output/R002_planimetria.kml</planimetria>
-    <altimetria>output/R002_altimetria.svg</altimetria>
+    <puntosRuta>
+      <punto longitud="-1.9762" latitud="43.3228" altitud="7"/>
+      <punto longitud="-1.9757" latitud="43.3225" altitud="7"/>
+      <punto longitud="-1.9754" latitud="43.3221" altitud="8"/>
+      <punto longitud="-1.9758" latitud="43.3224" altitud="7"/>
+      <punto longitud="-1.9762" latitud="43.3228" altitud="7"/>
+      <punto longitud="-1.9765" latitud="43.3230" altitud="7"/>
+      <punto longitud="-1.9768" latitud="43.3232" altitud="7"/>
+      <punto longitud="-1.9774" latitud="43.3236" altitud="7"/>
+      <punto longitud="-1.9780" latitud="43.3240" altitud="6"/>
+      <punto longitud="-1.9785" latitud="43.3243" altitud="6"/>
+      <punto longitud="-1.9790" latitud="43.3245" altitud="6"/>
+      <punto longitud="-1.9785" latitud="43.3248" altitud="7"/>
+      <punto longitud="-1.9775" latitud="43.3252" altitud="10"/>
+      <punto longitud="-1.9760" latitud="43.3256" altitud="18"/>
+      <punto longitud="-1.9745" latitud="43.3259" altitud="35"/>
+      <punto longitud="-1.9730" latitud="43.3261" altitud="70"/>
+      <punto longitud="-1.9718" latitud="43.3262" altitud="123"/>
+      <punto longitud="-1.9725" latitud="43.3258" altitud="90"/>
+      <punto longitud="-1.9738" latitud="43.3248" altitud="55"/>
+      <punto longitud="-1.9758" latitud="43.3232" altitud="20"/>
+      <punto longitud="-1.9780" latitud="43.3220" altitud="10"/>
+      <punto longitud="-1.9800" latitud="43.3210" altitud="5"/>
+      <punto longitud="-1.9820" latitud="43.3200" altitud="2"/>
+      <punto longitud="-1.9835" latitud="43.3193" altitud="1"/>
+      <punto longitud="-1.9843" latitud="43.3189" altitud="1"/>
+    </puntosRuta>
+
+    <planimetria>R002_planimetria.kml</planimetria>
+    <altimetria>R002_altimetria.svg</altimetria>
   </ruta>
 
 
@@ -387,12 +438,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">multimedia/R003/H003-01_behobia_puente.jpg</foto>
-          <foto alt="Peregrinos cruzando el Puente de Behobia al inicio del Camino de Santiago del Norte">multimedia/R003/H003-01_behobia_peregrinos.jpg</foto>
-          <foto alt="Vista de la bahía de Txingudi desde las inmediaciones del Puente de Behobia">multimedia/R003/H003-01_txingudi_bahia.jpg</foto>
+          <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">../multimedia/R003/H003-01_behobia_puente.jpg</foto>
+          <foto alt="Vista de la bahía de Txingudi desde las inmediaciones del Puente de Behobia">../multimedia/R003/H003-01_txingudi_bahia.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo del inicio del Camino del Norte desde el Puente de Behobia en Irún">multimedia/R003/H003-01_inicio_camino.mp4</video>
+          <video alt="Vídeo del inicio del Camino del Norte desde el Puente de Behobia en Irún">../multimedia/R003/H003-01_inicio_camino.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -406,13 +456,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">4.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">multimedia/R003/H003-02_hondarribia_murallas.jpg</foto>
-          <foto alt="Castillo de Carlos V, hoy Parador Nacional, en Hondarribia">multimedia/R003/H003-02_hondarribia_castillo.jpg</foto>
-          <foto alt="Casas porticadas de colores del barrio de la Marina de Hondarribia">multimedia/R003/H003-02_hondarribia_marina.jpg</foto>
+          <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">../multimedia/R003/H003-02_hondarribia_murallas.jpg</foto>
+          <foto alt="Casas porticadas de colores del barrio de la Marina de Hondarribia">../multimedia/R003/H003-02_hondarribia_marina.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de visita al casco histórico medieval de Hondarribia">multimedia/R003/H003-02_hondarribia_visita.mp4</video>
-          <video alt="Vídeo del Alarde tradicional de Hondarribia, fiesta histórica anual">multimedia/R003/H003-02_hondarribia_alarde.mp4</video>
+          <video alt="Vídeo de visita al casco histórico medieval de Hondarribia">../multimedia/R003/H003-02_hondarribia_visita.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -426,12 +474,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">8.2</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_panoramica.jpg</foto>
-          <foto alt="Santuario de la Virgen de Guadalupe en las laderas del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_santuario.jpg</foto>
-          <foto alt="Peregrinos en el sendero del Camino del Norte por el Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_sendero.jpg</foto>
+          <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_panoramica.jpg</foto>
+          <foto alt="Santuario de la Virgen de Guadalupe en las laderas del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_santuario.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_drone.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_drone.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -445,12 +492,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">12.3</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">multimedia/R003/H003-04_pasaia_casas.jpg</foto>
-          <foto alt="Travesía en barca de remo para cruzar la ría de Pasaia en el Camino del Norte">multimedia/R003/H003-04_pasaia_barca.jpg</foto>
-          <foto alt="Paseo marítimo de Pasajes de San Juan entre casas de piedra junto al agua">multimedia/R003/H003-04_pasaia_paseo.jpg</foto>
+          <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">../multimedia/R003/H003-04_pasaia_casas.jpg</foto>
+          <foto alt="Travesía en barca de remo para cruzar la ría de Pasaia en el Camino del Norte">../multimedia/R003/H003-04_pasaia_barca.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de la travesía en barca sobre la ría de Pasaia en el Camino del Norte">multimedia/R003/H003-04_pasaia_travesia.mp4</video>
+          <video alt="Vídeo de la travesía en barca sobre la ría de Pasaia en el Camino del Norte">../multimedia/R003/H003-04_pasaia_travesia.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -464,12 +510,11 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">28.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">multimedia/R003/H003-05_zarautz_playa.jpg</foto>
-          <foto alt="Paseo marítimo de Zarautz con el casco urbano al fondo">multimedia/R003/H003-05_zarautz_paseo.jpg</foto>
-          <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">multimedia/R003/H003-05_zarautz_torre_luzea.jpg</foto>
+          <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">../multimedia/R003/H003-05_zarautz_playa.jpg</foto>
+          <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">../multimedia/R003/H003-05_zarautz_torre_luzea.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo del campeonato de surf del World Surf League en la playa de Zarautz">multimedia/R003/H003-05_zarautz_surf.mp4</video>
+          <video alt="Vídeo del campeonato de surf del World Surf League en la playa de Zarautz">../multimedia/R003/H003-05_zarautz_surf.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -483,18 +528,66 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">22.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_portada.jpg</foto>
-          <foto alt="Claustro gótico de gran elegancia de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_claustro.jpg</foto>
-          <foto alt="Casco medieval de Deba con sus calles porticadas y arquitectura histórica">multimedia/R003/H003-06_deba_casco.jpg</foto>
+          <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">../multimedia/R003/H003-06_deba_portada.jpg</foto>
+          <foto alt="Casco medieval de Deba con sus calles porticadas y arquitectura histórica">../multimedia/R003/H003-06_deba_casco.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de visita al interior de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_interior.mp4</video>
+          <video alt="Vídeo de visita al interior de la Colegiata de Santa María de Deba">../multimedia/R003/H003-06_deba_interior.mp4</video>
         </galeriaVideos>
       </hito>
     </hitos>
 
-    <planimetria>output/R003_planimetria.kml</planimetria>
-    <altimetria>output/R003_altimetria.svg</altimetria>
+    <puntosRuta>
+      <punto longitud="-1.7742" latitud="43.3471" altitud="10"/>
+      <punto longitud="-1.7800" latitud="43.3490" altitud="15"/>
+      <punto longitud="-1.7860" latitud="43.3520" altitud="20"/>
+      <punto longitud="-1.7920" latitud="43.3560" altitud="22"/>
+      <punto longitud="-1.7975" latitud="43.3648" altitud="25"/>
+      <punto longitud="-1.8020" latitud="43.3670" altitud="40"/>
+      <punto longitud="-1.8080" latitud="43.3685" altitud="80"/>
+      <punto longitud="-1.8150" latitud="43.3700" altitud="150"/>
+      <punto longitud="-1.8230" latitud="43.3710" altitud="250"/>
+      <punto longitud="-1.8320" latitud="43.3715" altitud="350"/>
+      <punto longitud="-1.8400" latitud="43.3718" altitud="420"/>
+      <punto longitud="-1.8460" latitud="43.3716" altitud="450"/>
+      <punto longitud="-1.8524" latitud="43.3715" altitud="450"/>
+      <punto longitud="-1.8600" latitud="43.3700" altitud="400"/>
+      <punto longitud="-1.8680" latitud="43.3680" altitud="320"/>
+      <punto longitud="-1.8760" latitud="43.3640" altitud="220"/>
+      <punto longitud="-1.8840" latitud="43.3580" altitud="120"/>
+      <punto longitud="-1.8920" latitud="43.3510" altitud="60"/>
+      <punto longitud="-1.9000" latitud="43.3460" altitud="30"/>
+      <punto longitud="-1.9080" latitud="43.3435" altitud="15"/>
+      <punto longitud="-1.9160" latitud="43.3415" altitud="8"/>
+      <punto longitud="-1.9210" latitud="43.3408" altitud="5"/>
+      <punto longitud="-1.9262" latitud="43.3398" altitud="5"/>
+      <punto longitud="-1.9380" latitud="43.3350" altitud="20"/>
+      <punto longitud="-1.9500" latitud="43.3280" altitud="55"/>
+      <punto longitud="-1.9620" latitud="43.3180" altitud="80"/>
+      <punto longitud="-1.9750" latitud="43.3080" altitud="40"/>
+      <punto longitud="-1.9900" latitud="43.2990" altitud="15"/>
+      <punto longitud="-2.0060" latitud="43.2930" altitud="10"/>
+      <punto longitud="-2.0250" latitud="43.2880" altitud="8"/>
+      <punto longitud="-2.0450" latitud="43.2860" altitud="5"/>
+      <punto longitud="-2.0650" latitud="43.2850" altitud="5"/>
+      <punto longitud="-2.0850" latitud="43.2845" altitud="5"/>
+      <punto longitud="-2.1050" latitud="43.2844" altitud="4"/>
+      <punto longitud="-2.1250" latitud="43.2843" altitud="3"/>
+      <punto longitud="-2.1450" latitud="43.2843" altitud="3"/>
+      <punto longitud="-2.1711" latitud="43.2843" altitud="3"/>
+      <punto longitud="-2.1900" latitud="43.2855" altitud="10"/>
+      <punto longitud="-2.2100" latitud="43.2870" altitud="25"/>
+      <punto longitud="-2.2300" latitud="43.2890" altitud="40"/>
+      <punto longitud="-2.2500" latitud="43.2910" altitud="30"/>
+      <punto longitud="-2.2700" latitud="43.2925" altitud="15"/>
+      <punto longitud="-2.2900" latitud="43.2938" altitud="8"/>
+      <punto longitud="-2.3100" latitud="43.2945" altitud="8"/>
+      <punto longitud="-2.3300" latitud="43.2950" altitud="8"/>
+      <punto longitud="-2.3521" latitud="43.2955" altitud="8"/>
+    </puntosRuta>
+
+    <planimetria>R003_planimetria.kml</planimetria>
+    <altimetria>R003_altimetria.svg</altimetria>
   </ruta>
 
 </rutas>

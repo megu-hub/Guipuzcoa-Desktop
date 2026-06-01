@@ -1,44 +1,50 @@
 <!DOCTYPE HTML>
-
 <html lang="es">
 <head>
-    <!-- Datos que describen el documento -->
     <meta charset="UTF-8" />
     <title>Guipuzcoa-Rutas</title>
-	
-	<meta name="keywords" content="Guipuzcoa, Guipuzcoa-Desktop" />
-	<meta name="author" content = "Clara Fernández" />
-	<meta name = "description" content = "Reservas para realizar en Guipuzcoa" />
-	<meta name = "viewport" content = "width=device-width, initial-scale=1.0" />
-	<link rel="icon" href="multimedia/icono.ico"/>
-	<link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-	<link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <meta name="keywords" content="Guipuzcoa, Guipuzcoa-Desktop" />
+    <meta name="author" content="Clara Fernández" />
+    <meta name="description" content="Rutas turísticas de Guipuzcoa" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="multimedia/icono.ico"/>
+    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <!-- Mapbox GL JS -->
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.css" rel="stylesheet">
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.0.1/mapbox-gl.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 </head>
 
 <body>
-    <!-- Datos con el contenidos que aparece en el navegador -->
-	<header>
-    <h1><a href="index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
-	<nav>
-	<a href="index.html" title="Inicio">Inicio</a>
-	<a href="gastronomia.html" title="Gastronomía de Guipuzcoa">Gastronomía</a>
-	<a href="rutas.html" title="Rutas de Guipuzcoa" class="active">Rutas</a>
-	<a href="meteorologia.html" title="Información de la meteorología">Meteorología</a>
-	<a href="juego.html" title="Juego">Juego</a>
+    <header>
+        <h1><a href="index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
+        <nav>
+            <a href="index.html" title="Inicio">Inicio</a>
+            <a href="gastronomia.html" title="Gastronomía de Guipuzcoa">Gastronomía</a>
+            <a href="rutas.html" title="Rutas de Guipuzcoa" class="active">Rutas</a>
+            <a href="meteorologia.html" title="Información de la meteorología">Meteorología</a>
+            <a href="juego.html" title="Juego">Juego</a>
+            <a href="php/reservas.php" title="Reservas en Guipuzcoa">Reservas</a>
+            <a href="ayuda.html" title="Información de Ayuda">Ayuda</a>
+        </nav>
+    </header>
 
-	<a href="php/reservas.php" title="Reservas en Guipuzcoa">Reservas</a>
-	<a href="ayuda.html" title="Información de Ayuda">Ayuda</a>
-	</nav>
-	</header>
-	
-	<p>Estás en:
-	<a href="index.html" title="Inicio">Inicio</a> >> <strong>Rutas</strong>
-	</p>
+    <p>Estás en:
+        <a href="index.html" title="Inicio">Inicio</a> &gt;&gt; <strong>Rutas</strong>
+    </p>
 
-	<main>
+    <main>
+        <h2>Rutas de Guipuzcoa</h2>
 
-	<h2>Rutas de Guipuzcoa</h2>
-	
-	</main>
+        <label for="archivo-xml">Cargar archivo rutas.xml:</label>
+        <input type="file" id="archivo-xml" accept=".xml">
+
+        <p id="mensaje-carga">Selecciona el archivo rutas.xml para visualizar las rutas.</p>
+    </main>
+
+    <!-- El div del mapa está permitido por el enunciado -->
+    <script src="js/rutas.js"></script>
 </body>
 </html>
