@@ -1,7 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rutas [
+<!ELEMENT rutas (ruta+)>
+<!ATTLIST rutas
+    provincia   CDATA   #REQUIRED
+    pais        CDATA   #REQUIRED
+    region      CDATA   #REQUIRED
+>
+<!ELEMENT ruta (nombre, tipo, medioTransporte, fechaInicio?, horaInicio?,
+                duracion, agencia, descripcion, personasAdecuadas,
+                lugarInicio, direccionInicio, coordenadasInicio,
+                referencias, recomendacion, hitos,
+                planimetria, altimetria)>
+<!ATTLIST ruta
+    id  ID  #REQUIRED
+>
+<!ELEMENT nombre            (#PCDATA)>
+<!ELEMENT tipo              (#PCDATA)>
+<!ELEMENT medioTransporte   (#PCDATA)>
+<!ELEMENT duracion          (#PCDATA)>
+<!ELEMENT agencia           (#PCDATA)>
+<!ELEMENT descripcion       (#PCDATA)>
+<!ELEMENT personasAdecuadas (#PCDATA)>
+<!ELEMENT lugarInicio       (#PCDATA)>
+<!ELEMENT direccionInicio   (#PCDATA)>
+<!ELEMENT recomendacion     (#PCDATA)>
+<!ELEMENT planimetria       (#PCDATA)>
+<!ELEMENT altimetria        (#PCDATA)>
+<!ELEMENT fechaInicio (#PCDATA)>
+<!ATTLIST fechaInicio
+    opcional (true|false) "true"
+>
+<!ELEMENT horaInicio (#PCDATA)>
+<!ATTLIST horaInicio
+    opcional (true|false) "true"
+>
+<!ELEMENT coordenadasInicio (longitud, latitud, altitud)>
+<!ELEMENT coordenadas       (longitud, latitud, altitud)>
+<!ELEMENT longitud  (#PCDATA)>
+<!ELEMENT latitud   (#PCDATA)>
+<!ELEMENT altitud   (#PCDATA)>
+<!ELEMENT referencias (referencia, referencia, referencia, referencia*)>
+<!ELEMENT referencia (#PCDATA)>
+<!ATTLIST referencia
+    id CDATA #REQUIRED
+>
+<!ELEMENT hitos (hito, hito, hito, hito, hito, hito*)>
+<!ELEMENT hito  (nombre, descripcion, coordenadas,
+                 distanciaDesdeAnterior, galeriaFotos, galeriaVideos?)>
+<!ATTLIST hito
+    id  ID  #REQUIRED
+>
+<!ELEMENT distanciaDesdeAnterior (#PCDATA)>
+<!ATTLIST distanciaDesdeAnterior
+    unidades (km|m|mi) #REQUIRED
+>
+<!ELEMENT galeriaFotos (foto+)>
+<!ELEMENT foto (#PCDATA)>
+<!ATTLIST foto
+    alt CDATA #REQUIRED
+>
+<!ELEMENT galeriaVideos (video+)>
+<!ELEMENT video (#PCDATA)>
+<!ATTLIST video
+    alt CDATA #REQUIRED
+>
+]>
 
 <rutas provincia="Gipuzkoa" pais="España" region="País Vasco">
-  <!-- Ruta de la Costa Vasca -->
+
+  <!-- ==================== RUTA 1 ==================== -->
   <ruta id="R001">
     <nombre>Ruta de la Costa Vasca: De Getaria a Zumaia</nombre>
     <tipo>Paisajística</tipo>
@@ -10,15 +77,7 @@
     <horaInicio opcional="true">09:00</horaInicio>
     <duracion>1 día</duracion>
     <agencia>Geoparke Euskal Kostaldea</agencia>
-    <descripcion>
-      Espectacular recorrido a pie por los acantilados y playas más emblemáticas de la costa
-      guipuzcoana, desde el pintoresco pueblo pescador de Getaria hasta Zumaia. El camino
-      discurre junto al flysch de Zumaia, uno de los afloramientos geológicos más importantes
-      del mundo, reconocido como Geoparque Mundial de la UNESCO. La ruta combina paisajes
-      marinos impresionantes, flora atlántica autóctona y vistas panorámicas del mar Cantábrico.
-      A lo largo del recorrido se alternan senderos de tierra, caminos costeros y pequeños
-      descensos a calas y playas vírgenes de difícil acceso.
-    </descripcion>
+    <descripcion>Recorrido a pie por los acantilados y playas de la costa guipuzcoana, desde Getaria hasta Zumaia, atravesando el Geoparque Mundial UNESCO del Flysch.</descripcion>
     <personasAdecuadas>Personas en buena forma física; no recomendada para tercera edad ni niños menores de 10 años</personasAdecuadas>
     <lugarInicio>Puerto de Getaria</lugarInicio>
     <direccionInicio>Calle Nagusia 1, Getaria</direccionInicio>
@@ -28,24 +87,17 @@
       <altitud>5</altitud>
     </coordenadasInicio>
     <referencias>
-      <referencia id="1">https://www.turismogipuzkoa.eus/es/costa-vasca</referencia>
-      <referencia id="2">https://es.wikipedia.org/wiki/Flysch_de_Zumaia</referencia>
-      <referencia id="3">https://www.geoparkevasco.eus/es/rutas/costa</referencia>
-      <referencia id="4">https://www.wikiloc.com/rutas-senderismo/getaria-zumaia-costa</referencia>
+      <referencia id="R001-ref1">https://www.turismogipuzkoa.eus/es/costa-vasca</referencia>
+      <referencia id="R001-ref2">https://es.wikipedia.org/wiki/Flysch_de_Zumaia</referencia>
+      <referencia id="R001-ref3">https://www.geoparkevasco.eus/es/rutas/costa</referencia>
+      <referencia id="R001-ref4">https://www.wikiloc.com/rutas-senderismo/getaria-zumaia-costa</referencia>
     </referencias>
     <recomendacion>9</recomendacion>
 
     <hitos>
-
       <hito id="H001-01">
         <nombre>Puerto pesquero de Getaria</nombre>
-        <descripcion>
-          Punto de partida de la ruta. El puerto de Getaria es uno de los más pintorescos del
-          País Vasco, con una activa flota pesquera y reconocida tradición marinera. Desde aquí
-          se divisa la isla de San Antón, conocida popularmente como el Ratón de Getaria por su
-          silueta característica. El municipio es cuna del navegante Juan Sebastián Elcano,
-          primer hombre en circunnavegar el globo, y del diseñador de moda Cristóbal Balenciaga.
-        </descripcion>
+        <descripcion>Punto de partida. Puerto pintoresco con flota pesquera activa. Frente a él se alza la isla de San Antón (el Ratón de Getaria). Cuna de Juan Sebastián Elcano y Cristóbal Balenciaga.</descripcion>
         <coordenadas>
           <longitud>-2.2028</longitud>
           <latitud>43.3001</latitud>
@@ -53,24 +105,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Getaria_puerto_panoramica.jpg</foto>
-          <foto>Getaria_isla_raton.jpg</foto>
-          <foto>Getaria_barcos_pesqueros.jpg</foto>
+          <foto alt="Vista panorámica del puerto de Getaria con barcos pesqueros">multimedia/R001/H001-01_puerto_panoramica.jpg</foto>
+          <foto alt="Isla de San Antón (el Ratón) vista desde el puerto de Getaria">multimedia/R001/H001-01_isla_raton.jpg</foto>
+          <foto alt="Barcos pesqueros amarrados en el puerto de Getaria">multimedia/R001/H001-01_barcos_pesqueros.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Getaria_puerto_amanecer.mp4</video>
+          <video alt="Vídeo del amanecer en el puerto de Getaria con actividad pesquera">multimedia/R001/H001-01_puerto_amanecer.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H001-02">
         <nombre>Museo Cristóbal Balenciaga</nombre>
-        <descripcion>
-          Museo dedicado al genio de la moda Cristóbal Balenciaga, nacido en Getaria en 1895.
-          El edificio combina la casona palaciega de los marqueses de Casa Torres con un volumen
-          contemporáneo de cristal diseñado por el estudio Julián Argilagos. Su colección
-          permanente alberga más de 1.200 piezas originales del diseñador considerado el rey
-          de la costura del siglo XX.
-        </descripcion>
+        <descripcion>Museo dedicado al modisto nacido en Getaria en 1895. El edificio combina palacio histórico y volumen de cristal contemporáneo. Más de 1.200 piezas originales del diseñador.</descripcion>
         <coordenadas>
           <longitud>-2.2041</longitud>
           <latitud>43.3010</latitud>
@@ -78,23 +124,17 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">250</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>MuseoBalenciaga_fachada.jpg</foto>
-          <foto>MuseoBalenciaga_exposicion.jpg</foto>
+          <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">multimedia/R001/H001-02_museo_fachada.jpg</foto>
+          <foto alt="Exposición de vestidos originales de Balenciaga en el museo">multimedia/R001/H001-02_museo_exposicion.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>MuseoBalenciaga_visita_virtual.mp4</video>
+          <video alt="Vídeo de visita virtual a las salas del Museo Cristóbal Balenciaga">multimedia/R001/H001-02_museo_visita_virtual.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H001-03">
         <nombre>Playa de Malkorbe</nombre>
-        <descripcion>
-          Playa virgen de acceso difícil y gran belleza salvaje, a mitad de camino entre
-          Getaria y Zumaia. Sus arenas doradas contrastan con los imponentes acantilados que
-          la rodean. Zona de especial protección medioambiental y lugar privilegiado para el
-          avistamiento de aves marinas y flora atlántica autóctona. Uno de los rincones más
-          secretos y mejor conservados de la costa vasca.
-        </descripcion>
+        <descripcion>Playa virgen de acceso difícil entre Getaria y Zumaia. Arenas doradas rodeadas de acantilados. Zona de especial protección medioambiental con avistamiento de aves marinas.</descripcion>
         <coordenadas>
           <longitud>-2.2280</longitud>
           <latitud>43.2967</latitud>
@@ -102,21 +142,15 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.8</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>PlayaMalkorbe_aerea.jpg</foto>
-          <foto>PlayaMalkorbe_acantilados.jpg</foto>
-          <foto>PlayaMalkorbe_flora.jpg</foto>
+          <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">multimedia/R001/H001-03_malkorbe_aerea.jpg</foto>
+          <foto alt="Acantilados que flanquean la playa de Malkorbe en la costa vasca">multimedia/R001/H001-03_malkorbe_acantilados.jpg</foto>
+          <foto alt="Flora atlántica autóctona en los alrededores de la playa de Malkorbe">multimedia/R001/H001-03_malkorbe_flora.jpg</foto>
         </galeriaFotos>
       </hito>
 
       <hito id="H001-04">
         <nombre>Acantilados del Flysch de Zumaia</nombre>
-        <descripcion>
-          Los impresionantes acantilados de flysch forman una de las secciones estratigráficas
-          continuas más completas del mundo, con capas de roca que registran 50 millones de
-          años de historia geológica. Declarados Geoparque Mundial de la UNESCO en 2015, sus
-          estratos inclinados muestran el límite entre el Cretácico y el Paleógeno, conocido
-          como el límite K-Pg, relacionado con la extinción de los dinosaurios.
-        </descripcion>
+        <descripcion>Acantilados con sección estratigráfica continua de 50 millones de años. Geoparque Mundial UNESCO desde 2015. Sus estratos muestran el límite K-Pg relacionado con la extinción de los dinosaurios.</descripcion>
         <coordenadas>
           <longitud>-2.2500</longitud>
           <latitud>43.2920</latitud>
@@ -124,25 +158,19 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Flysch_estratos_verticales.jpg</foto>
-          <foto>Flysch_acantilado_mar.jpg</foto>
-          <foto>Flysch_panoramica_aerea.jpg</foto>
+          <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">multimedia/R001/H001-04_flysch_estratos.jpg</foto>
+          <foto alt="Vista del acantilado de flysch desde el nivel del mar">multimedia/R001/H001-04_flysch_acantilado.jpg</foto>
+          <foto alt="Panorámica aérea de los acantilados del Geoparque del Flysch de Zumaia">multimedia/R001/H001-04_flysch_panoramica.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Flysch_documental_geologico.mp4</video>
-          <video>Flysch_timelapse_mareas.mp4</video>
+          <video alt="Documental geológico sobre la formación y significado del flysch de Zumaia">multimedia/R001/H001-04_flysch_documental.mp4</video>
+          <video alt="Timelapse de las mareas en los acantilados del flysch de Zumaia">multimedia/R001/H001-04_flysch_timelapse.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H001-05">
         <nombre>Playa de Itzurun</nombre>
-        <descripcion>
-          Una de las playas más espectaculares de Gipuzkoa, flanqueada por los acantilados de
-          flysch. Mundialmente famosa por haber sido escenario de rodaje de la serie Juego de
-          Tronos, donde representó la fortaleza de Rocadragón. La bajada a la playa permite
-          apreciar de cerca las impresionantes formaciones rocosas y comprender la magnitud
-          geológica de este lugar único.
-        </descripcion>
+        <descripcion>Playa espectacular flanqueada por acantilados de flysch. Escenario de rodaje de Juego de Tronos (Rocadragón). Permite apreciar de cerca las formaciones rocosas del Geoparque.</descripcion>
         <coordenadas>
           <longitud>-2.2549</longitud>
           <latitud>43.2887</latitud>
@@ -150,24 +178,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">800</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Itzurun_playa_flysch.jpg</foto>
-          <foto>Itzurun_atardecer.jpg</foto>
-          <foto>Itzurun_aerea_drone.jpg</foto>
+          <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">multimedia/R001/H001-05_itzurun_playa.jpg</foto>
+          <foto alt="Atardecer sobre la playa de Itzurun y los acantilados de Zumaia">multimedia/R001/H001-05_itzurun_atardecer.jpg</foto>
+          <foto alt="Vista aérea con dron de la playa de Itzurun y su entorno geológico">multimedia/R001/H001-05_itzurun_aerea.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Itzurun_drone_vuelo.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la playa de Itzurun y los acantilados de flysch">multimedia/R001/H001-05_itzurun_drone.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H001-06">
         <nombre>Centro de Interpretación Algorri (Zumaia)</nombre>
-        <descripcion>
-          Centro de interpretación geológica del Geoparque ubicado en el casco histórico de
-          Zumaia. Exposiciones interactivas y material audiovisual que explican la formación
-          y relevancia científica del flysch. Punto final de la ruta y lugar ideal para
-          consolidar los conocimientos adquiridos durante el recorrido costero. El edificio
-          ocupa una antigua estructura portuaria rehabilitada con criterios de sostenibilidad.
-        </descripcion>
+        <descripcion>Centro geológico del Geoparque en el casco histórico de Zumaia. Exposiciones interactivas sobre el flysch. Punto final de la ruta, en una antigua estructura portuaria rehabilitada.</descripcion>
         <coordenadas>
           <longitud>-2.2561</longitud>
           <latitud>43.2895</latitud>
@@ -175,16 +197,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">500</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Algorri_exterior_puerto.jpg</foto>
-          <foto>Algorri_exposicion_interior.jpg</foto>
+          <foto alt="Exterior del Centro de Interpretación Algorri junto al puerto de Zumaia">multimedia/R001/H001-06_algorri_exterior.jpg</foto>
+          <foto alt="Sala de exposición interactiva del Centro Algorri sobre geología del flysch">multimedia/R001/H001-06_algorri_interior.jpg</foto>
         </galeriaFotos>
       </hito>
-
     </hitos>
+
+    <planimetria>output/R001_planimetria.kml</planimetria>
+    <altimetria>output/R001_altimetria.svg</altimetria>
   </ruta>
 
 
-  <!-- Ruta Gastronómica y Monumental de Donostia -->
+  <!-- ==================== RUTA 2 ==================== -->
   <ruta id="R002">
     <nombre>Ruta de Pintxos y Monumentos por la Parte Vieja de Donostia</nombre>
     <tipo>Mixta tapas y monumentos</tipo>
@@ -193,15 +217,7 @@
     <horaInicio opcional="true">11:00</horaInicio>
     <duracion>4 horas</duracion>
     <agencia>Donostia San Sebastián Turismoa</agencia>
-    <descripcion>
-      Recorrido por la Parte Vieja de San Sebastián que combina la arquitectura histórica con
-      la legendaria cultura del pintxo. La ciudad, reconocida como Capital Gastronómica y
-      referente mundial de la alta cocina, ofrece al viajero una experiencia única donde el
-      patrimonio arquitectónico del casco antiguo se funde con la mejor gastronomía vasca.
-      El itinerario recorre plazas históricas, iglesias barrocas, el mercado tradicional de
-      La Bretxa y los bares de pintxos más emblemáticos de la Calle 31 de Agosto, terminando
-      con las vistas inmejorables de la Bahía de La Concha desde el Monte Urgull.
-    </descripcion>
+    <descripcion>Recorrido por la Parte Vieja de San Sebastián que combina arquitectura histórica con la cultura del pintxo vasco, terminando con las vistas de La Concha desde el Monte Urgull.</descripcion>
     <personasAdecuadas>Todos los públicos, familias con niños, tercera edad, grupos de amigos</personasAdecuadas>
     <lugarInicio>Plaza de la Constitución</lugarInicio>
     <direccionInicio>Plaza de la Constitución s/n, Donostia-San Sebastián</direccionInicio>
@@ -211,25 +227,17 @@
       <altitud>7</altitud>
     </coordenadasInicio>
     <referencias>
-      <referencia id="1">https://www.sansebastianturismo.com/es/que-ver/parte-vieja</referencia>
-      <referencia id="2">https://es.wikipedia.org/wiki/Parte_Vieja_de_San_Sebasti%C3%A1n</referencia>
-      <referencia id="3">https://www.euskaditurismo.net/es/donostia-gastronomia</referencia>
-      <referencia id="4">https://www.thefork.es/guia-restaurantes/san-sebastian-pintxos</referencia>
+      <referencia id="R002-ref1">https://www.sansebastianturismo.com/es/que-ver/parte-vieja</referencia>
+      <referencia id="R002-ref2">https://es.wikipedia.org/wiki/Parte_Vieja_de_San_Sebasti%C3%A1n</referencia>
+      <referencia id="R002-ref3">https://www.euskaditurismo.net/es/donostia-gastronomia</referencia>
+      <referencia id="R002-ref4">https://www.thefork.es/guia-restaurantes/san-sebastian-pintxos</referencia>
     </referencias>
     <recomendacion>10</recomendacion>
 
     <hitos>
-
       <hito id="H002-01">
         <nombre>Plaza de la Constitución</nombre>
-        <descripcion>
-          Corazón histórico y punto de encuentro de la Parte Vieja. Esta plaza porticada del
-          siglo XIX fue escenario de corridas de toros hasta 1864, como atestiguan los números
-          pintados en los balcones que entonces se alquilaban como palcos. De arquitectura
-          neoclásica, está rodeada de bares y restaurantes y es el lugar más emblemático de
-          la vida social donostiarra, especialmente animada durante las fiestas de la Semana
-          Grande en agosto.
-        </descripcion>
+        <descripcion>Corazón histórico de la Parte Vieja. Plaza porticada del siglo XIX, antigua plaza de toros. Los números en los balcones eran palcos de alquiler. Epicentro de la vida social donostiarra.</descripcion>
         <coordenadas>
           <longitud>-1.9762</longitud>
           <latitud>43.3228</latitud>
@@ -237,24 +245,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>PlazaConstitucion_panoramica.jpg</foto>
-          <foto>PlazaConstitucion_porticos_noche.jpg</foto>
-          <foto>PlazaConstitucion_balcones_numerados.jpg</foto>
+          <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">multimedia/R002/H002-01_plaza_panoramica.jpg</foto>
+          <foto alt="Pórticos y bares de la Plaza de la Constitución iluminados de noche">multimedia/R002/H002-01_plaza_noche.jpg</foto>
+          <foto alt="Detalle de los balcones numerados históricos de la Plaza de la Constitución">multimedia/R002/H002-01_balcones_numerados.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>PlazaConstitucion_ambiente_verano.mp4</video>
+          <video alt="Vídeo del ambiente veraniego en la Plaza de la Constitución durante la Semana Grande">multimedia/R002/H002-01_plaza_ambiente.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H002-02">
         <nombre>Basílica de Santa María del Coro</nombre>
-        <descripcion>
-          Joya del barroco vasco construida entre 1743 y 1774, con una imponente fachada
-          churrigueresca de dos torres flanqueando el ábside. Presidida por la imagen de la
-          Virgen del Coro, patrona de San Sebastián, es el edificio religioso más representativo
-          de la ciudad. Su interior alberga valiosas obras de arte, entre ellas un Cristo
-          crucificado atribuido al círculo de Gregorio Fernández.
-        </descripcion>
+        <descripcion>Joya del barroco vasco (1743-1774). Fachada churrigueresca de dos torres. Patrona de San Sebastián. Alberga obras de arte entre ellas un Cristo atribuido al círculo de Gregorio Fernández.</descripcion>
         <coordenadas>
           <longitud>-1.9754</longitud>
           <latitud>43.3221</latitud>
@@ -262,21 +264,15 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">150</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>BasilicaSantaMaria_fachada_barroca.jpg</foto>
-          <foto>BasilicaSantaMaria_interior_altar.jpg</foto>
-          <foto>BasilicaSantaMaria_detalle_torres.jpg</foto>
+          <foto alt="Fachada barroca churrigueresca de la Basílica de Santa María del Coro en Donostia">multimedia/R002/H002-02_basilica_fachada.jpg</foto>
+          <foto alt="Interior y altar mayor de la Basílica de Santa María del Coro">multimedia/R002/H002-02_basilica_interior.jpg</foto>
+          <foto alt="Detalle de las torres barrocas de la Basílica de Santa María del Coro">multimedia/R002/H002-02_basilica_torres.jpg</foto>
         </galeriaFotos>
       </hito>
 
       <hito id="H002-03">
         <nombre>Calle 31 de Agosto — Zona de Pintxos</nombre>
-        <descripcion>
-          La calle más célebre de la Parte Vieja, escenario del incendio de 1813 y hoy epicentro
-          de la cultura del pintxo donostiarra. Sus bares concentran algunas de las mejores
-          elaboraciones de pintxo de autor del mundo, con propuestas que van desde la
-          txangurro al horno hasta el foie micuit con manzana. Imprescindible: La Cuchara de
-          San Telmo, Borda Berri y Bar Zeruko, entre otros locales premiados.
-        </descripcion>
+        <descripcion>Calle más célebre de la Parte Vieja y epicentro mundial del pintxo. Bares premiados como La Cuchara de San Telmo, Borda Berri y Bar Zeruko. Txangurro, foie micuit y pintxo de autor.</descripcion>
         <coordenadas>
           <longitud>-1.9768</longitud>
           <latitud>43.3232</latitud>
@@ -284,25 +280,19 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">200</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Calle31Agosto_bares_pintxos.jpg</foto>
-          <foto>Calle31Agosto_barra_variedad.jpg</foto>
-          <foto>Calle31Agosto_pintxo_gilda.jpg</foto>
+          <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">multimedia/R002/H002-03_calle31_bares.jpg</foto>
+          <foto alt="Barra repleta de pintxos variados en un bar de la Calle 31 de Agosto">multimedia/R002/H002-03_calle31_barra.jpg</foto>
+          <foto alt="Pintxo gilda, el pintxo clásico de la gastronomía donostiarra">multimedia/R002/H002-03_pintxo_gilda.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Calle31_elaboracion_pintxos.mp4</video>
-          <video>Calle31_ambiente_tarde.mp4</video>
+          <video alt="Vídeo de la elaboración de pintxos de autor en la Calle 31 de Agosto">multimedia/R002/H002-03_calle31_elaboracion.mp4</video>
+          <video alt="Vídeo del animado ambiente de tarde en los bares de pintxos de Donostia">multimedia/R002/H002-03_calle31_ambiente.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H002-04">
         <nombre>Mercado de La Bretxa</nombre>
-        <descripcion>
-          Mercado tradicional renovado en 2001 y símbolo de la cultura gastronómica vasca.
-          En sus puestos se concentran los mejores productos locales: pescados y mariscos
-          frescos del Cantábrico, verduras de las huertas de Tolosa, queso idiazabal de pastor,
-          embutidos artesanos y las famosas alubias de Tolosa. La historia del mercado se
-          remonta al siglo XIV, cuando se celebraba el mercado extramuros de la ciudad amurallada.
-        </descripcion>
+        <descripcion>Mercado tradicional renovado en 2001. Pescados del Cantábrico, verduras de Tolosa, queso idiazabal y alubias de Tolosa. Historia que se remonta al siglo XIV, antiguo mercado extramuros.</descripcion>
         <coordenadas>
           <longitud>-1.9790</longitud>
           <latitud>43.3245</latitud>
@@ -310,21 +300,15 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">350</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>MercadoBretxa_puestos_pescado.jpg</foto>
-          <foto>MercadoBretxa_verduras_locales.jpg</foto>
-          <foto>MercadoBretxa_queso_idiazabal.jpg</foto>
+          <foto alt="Puestos de pescado fresco del Cantábrico en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_pescado.jpg</foto>
+          <foto alt="Verduras locales de las huertas de Tolosa en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_verduras.jpg</foto>
+          <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">multimedia/R002/H002-04_bretxa_idiazabal.jpg</foto>
         </galeriaFotos>
       </hito>
 
       <hito id="H002-05">
         <nombre>Castillo de La Mota — Monte Urgull</nombre>
-        <descripcion>
-          Fortaleza medieval construida en el siglo XII y ampliada sucesivamente hasta el XIX,
-          que corona el Monte Urgull y domina toda la bahía de La Concha. Desde sus murallas
-          se obtienen las mejores vistas panorámicas de San Sebastián: la playa de La Concha,
-          la isla de Santa Clara y el Monte Igueldo al fondo. El recinto incluye el Sagrado
-          Corazón de Jesús, estatua de 12 metros visible desde toda la ciudad.
-        </descripcion>
+        <descripcion>Fortaleza medieval del siglo XII que corona el Monte Urgull. Mejores vistas panorámicas de San Sebastián: La Concha, isla de Santa Clara y Monte Igueldo. Estatua del Sagrado Corazón de 12 metros.</descripcion>
         <coordenadas>
           <longitud>-1.9718</longitud>
           <latitud>43.3262</latitud>
@@ -332,24 +316,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">700</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>MonteUrgull_castillo_mota.jpg</foto>
-          <foto>MonteUrgull_vistas_bahia_concha.jpg</foto>
-          <foto>MonteUrgull_estatua_sagrado_corazon.jpg</foto>
+          <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">multimedia/R002/H002-05_urgull_castillo.jpg</foto>
+          <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">multimedia/R002/H002-05_urgull_bahia.jpg</foto>
+          <foto alt="Estatua del Sagrado Corazón de Jesús en la cima del Monte Urgull">multimedia/R002/H002-05_urgull_sagrado_corazon.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>MonteUrgull_panoramica_360.mp4</video>
+          <video alt="Vídeo panorámica 360 grados desde la cima del Monte Urgull de San Sebastián">multimedia/R002/H002-05_urgull_panoramica360.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H002-06">
         <nombre>Playa de La Concha</nombre>
-        <descripcion>
-          Considerada una de las playas urbanas más bellas de Europa, la Playa de La Concha
-          cierra el recorrido con su espectacular bahía en forma de concha. El paseo marítimo
-          de la Zurriola, el Palacio de Miramar sobre el promontorio y la isla de Santa Clara
-          en el centro de la bahía componen un paisaje icónico reconocido internacionalmente.
-          En los meses de verano acoge hasta 30.000 bañistas diarios.
-        </descripcion>
+        <descripcion>Una de las playas urbanas más bellas de Europa. Bahía en forma de concha con el Palacio de Miramar y la isla de Santa Clara. Hasta 30.000 bañistas diarios en verano. Cierre espectacular del recorrido.</descripcion>
         <coordenadas>
           <longitud>-1.9843</longitud>
           <latitud>43.3189</latitud>
@@ -357,20 +335,22 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">900</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>LaConcha_bahia_aerea.jpg</foto>
-          <foto>LaConcha_paseo_maritimo.jpg</foto>
-          <foto>LaConcha_atardecer_isla.jpg</foto>
+          <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">multimedia/R002/H002-06_concha_aerea.jpg</foto>
+          <foto alt="Paseo marítimo de La Concha con bañistas en verano">multimedia/R002/H002-06_concha_paseo.jpg</foto>
+          <foto alt="Atardecer sobre la Bahía de La Concha con la isla de Santa Clara">multimedia/R002/H002-06_concha_atardecer.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>LaConcha_drone_verano.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la Playa de La Concha en verano">multimedia/R002/H002-06_concha_drone.mp4</video>
         </galeriaVideos>
       </hito>
-
     </hitos>
+
+    <planimetria>output/R002_planimetria.kml</planimetria>
+    <altimetria>output/R002_altimetria.svg</altimetria>
   </ruta>
 
 
-  <!-- RUTA 3: Ruta del Camino de Santiago por Gipuzkoa -->
+  <!-- ==================== RUTA 3 ==================== -->
   <ruta id="R003">
     <nombre>Ruta del Camino de Santiago del Norte por Gipuzkoa</nombre>
     <tipo>Senderismo</tipo>
@@ -379,16 +359,7 @@
     <horaInicio opcional="true">07:30</horaInicio>
     <duracion>3 días</duracion>
     <agencia>Camino del Norte Gipuzkoa</agencia>
-    <descripcion>
-      Tramo guipuzcoano del Camino de Santiago del Norte, también conocido como Camino de
-      la Costa, que discurre desde Irún en la frontera con Francia hasta Deba, ya en los
-      límites con Bizkaia. Este recorrido de aproximadamente 85 kilómetros atraviesa algunos
-      de los paisajes más espectaculares del litoral cantábrico: acantilados, rías, bosques
-      de roble atlántico, caseríos tradicionales vascos y pueblos pesqueros históricos.
-      Declarado Itinerario Cultural Europeo por el Consejo de Europa, combina la espiritualidad
-      jacobea con un patrimonio natural y etnográfico excepcional. La ruta se divide en tres
-      etapas de dificultad moderada, con albergues de peregrinos en cada parada.
-    </descripcion>
+    <descripcion>Tramo guipuzcoano del Camino de Santiago del Norte, desde Irún hasta Deba (~85 km). Acantilados, rías, bosques atlánticos y caseríos vascos. Itinerario Cultural Europeo del Consejo de Europa.</descripcion>
     <personasAdecuadas>Personas en forma física moderada; no recomendada para niños menores de 12 años sin preparación previa</personasAdecuadas>
     <lugarInicio>Puente Internacional de Behobia</lugarInicio>
     <direccionInicio>Puente de Behobia, Irún</direccionInicio>
@@ -398,25 +369,17 @@
       <altitud>10</altitud>
     </coordenadasInicio>
     <referencias>
-      <referencia id="1">https://www.gronze.com/camino-norte/etapas/gipuzkoa</referencia>
-      <referencia id="2">https://es.wikipedia.org/wiki/Camino_del_Norte</referencia>
-      <referencia id="3">https://www.caminodesantiago.gal/es/rutas/camino-del-norte</referencia>
-      <referencia id="4">https://www.turismogipuzkoa.eus/es/camino-santiago</referencia>
+      <referencia id="R003-ref1">https://www.gronze.com/camino-norte/etapas/gipuzkoa</referencia>
+      <referencia id="R003-ref2">https://es.wikipedia.org/wiki/Camino_del_Norte</referencia>
+      <referencia id="R003-ref3">https://www.caminodesantiago.gal/es/rutas/camino-del-norte</referencia>
+      <referencia id="R003-ref4">https://www.turismogipuzkoa.eus/es/camino-santiago</referencia>
     </referencias>
     <recomendacion>8</recomendacion>
 
     <hitos>
-
       <hito id="H003-01">
         <nombre>Puente Internacional de Behobia (Irún)</nombre>
-        <descripcion>
-          Punto de entrada al Camino de Santiago del Norte en territorio español, donde los
-          peregrinos cruzan desde Francia por el río Bidasoa. El puente de Behobia, que une
-          Irún con la localidad francesa de Hendaya, marca el inicio de la aventura jacobea.
-          En sus inmediaciones se encuentra la ermita de San Marcial, primer hito espiritual
-          del camino, con magníficas vistas sobre la desembocadura del Bidasoa y la bahía
-          de Txingudi.
-        </descripcion>
+        <descripcion>Inicio del Camino del Norte en España. El puente une Irún con Hendaya (Francia) por el río Bidasoa. Ermita de San Marcial como primer hito espiritual, con vistas a la bahía de Txingudi.</descripcion>
         <coordenadas>
           <longitud>-1.7742</longitud>
           <latitud>43.3471</latitud>
@@ -424,24 +387,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Behobia_puente_internacional.jpg</foto>
-          <foto>Behobia_peregrinos_inicio.jpg</foto>
-          <foto>Behobia_bahia_txingudi.jpg</foto>
+          <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">multimedia/R003/H003-01_behobia_puente.jpg</foto>
+          <foto alt="Peregrinos cruzando el Puente de Behobia al inicio del Camino de Santiago del Norte">multimedia/R003/H003-01_behobia_peregrinos.jpg</foto>
+          <foto alt="Vista de la bahía de Txingudi desde las inmediaciones del Puente de Behobia">multimedia/R003/H003-01_txingudi_bahia.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Behobia_inicio_camino_norte.mp4</video>
+          <video alt="Vídeo del inicio del Camino del Norte desde el Puente de Behobia en Irún">multimedia/R003/H003-01_inicio_camino.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H003-02">
         <nombre>Casco histórico de Hondarribia</nombre>
-        <descripcion>
-          Villa medieval amurallada de excepcional valor patrimonial, declarada Conjunto
-          Monumental. Sus murallas del siglo XV, el Castillo de Carlos V (hoy Parador Nacional)
-          y el barrio de la Marina con sus casas porticadas de colores constituyen uno de los
-          centros históricos mejor conservados del País Vasco. La ciudad fue escenario de los
-          famosos Sitios de Hondarribia durante los siglos XVII y XVIII.
-        </descripcion>
+        <descripcion>Villa medieval amurallada declarada Conjunto Monumental. Murallas del siglo XV, Castillo de Carlos V (Parador Nacional) y barrio de la Marina con casas porticadas de colores. Escenario de los Sitios de los siglos XVII-XVIII.</descripcion>
         <coordenadas>
           <longitud>-1.7975</longitud>
           <latitud>43.3648</latitud>
@@ -449,25 +406,19 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">4.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Hondarribia_murallas_medievales.jpg</foto>
-          <foto>Hondarribia_castillo_carlos_V.jpg</foto>
-          <foto>Hondarribia_barrio_marina_colores.jpg</foto>
+          <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">multimedia/R003/H003-02_hondarribia_murallas.jpg</foto>
+          <foto alt="Castillo de Carlos V, hoy Parador Nacional, en Hondarribia">multimedia/R003/H003-02_hondarribia_castillo.jpg</foto>
+          <foto alt="Casas porticadas de colores del barrio de la Marina de Hondarribia">multimedia/R003/H003-02_hondarribia_marina.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Hondarribia_casco_historico_visita.mp4</video>
-          <video>Hondarribia_alarde_tradicional.mp4</video>
+          <video alt="Vídeo de visita al casco histórico medieval de Hondarribia">multimedia/R003/H003-02_hondarribia_visita.mp4</video>
+          <video alt="Vídeo del Alarde tradicional de Hondarribia, fiesta histórica anual">multimedia/R003/H003-02_hondarribia_alarde.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H003-03">
         <nombre>Monte Jaizkibel y Santuario de la Virgen de Guadalupe</nombre>
-        <descripcion>
-          El Jaizkibel es el monte litoral más alto de la costa vasca (547 m) y uno de los
-          tramos más bellos y exigentes del Camino del Norte. Desde su cima se obtiene una
-          vista panorámica incomparable del Cantábrico, los Pirineos y la costa francesa.
-          En sus laderas se encuentra el Santuario de Guadalupe (siglo XVI), lugar de
-          peregrinación y descanso tradicional para los caminantes jacobeos desde hace siglos.
-        </descripcion>
+        <descripcion>Monte litoral más alto de la costa vasca (547 m). Vistas del Cantábrico, los Pirineos y la costa francesa. Santuario de Guadalupe (s. XVI), tradicional punto de descanso jacobeo.</descripcion>
         <coordenadas>
           <longitud>-1.8524</longitud>
           <latitud>43.3715</latitud>
@@ -475,24 +426,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">8.2</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Jaizkibel_panoramica_cantabrico.jpg</foto>
-          <foto>Jaizkibel_santuario_guadalupe.jpg</foto>
-          <foto>Jaizkibel_sendero_peregrinos.jpg</foto>
+          <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_panoramica.jpg</foto>
+          <foto alt="Santuario de la Virgen de Guadalupe en las laderas del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_santuario.jpg</foto>
+          <foto alt="Peregrinos en el sendero del Camino del Norte por el Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_sendero.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Jaizkibel_vuelo_drone_costa.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">multimedia/R003/H003-03_jaizkibel_drone.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H003-04">
         <nombre>Pasajes de San Juan (Pasaia Donibane)</nombre>
-        <descripcion>
-          Pintoresco pueblo de pescadores situado en la ría de Pasaia, uno de los puertos
-          naturales más importantes del Cantábrico. Sus casas de colores se reflejan en las
-          aguas de la ría, que se cruza en barca de remo (un rito ineludible del Camino).
-          Víctor Hugo vivió aquí en 1843 y dejó constancia de su belleza en varios escritos.
-          Su único camino es un paseo marítimo que bordea el agua entre casas de piedra.
-        </descripcion>
+        <descripcion>Pueblo de pescadores en la ría de Pasaia. Se cruza en barca de remo (rito del Camino). Víctor Hugo vivió aquí en 1843. Paseo marítimo único entre casas de piedra reflejadas en el agua.</descripcion>
         <coordenadas>
           <longitud>-1.9262</longitud>
           <latitud>43.3398</latitud>
@@ -500,24 +445,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">12.3</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>PasaiasDonibane_casas_colores_ria.jpg</foto>
-          <foto>PasaiasDonibane_barca_travesia.jpg</foto>
-          <foto>PasaiasDonibane_paseo_maritimo.jpg</foto>
+          <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">multimedia/R003/H003-04_pasaia_casas.jpg</foto>
+          <foto alt="Travesía en barca de remo para cruzar la ría de Pasaia en el Camino del Norte">multimedia/R003/H003-04_pasaia_barca.jpg</foto>
+          <foto alt="Paseo marítimo de Pasajes de San Juan entre casas de piedra junto al agua">multimedia/R003/H003-04_pasaia_paseo.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>PasaiasDonibane_travesia_barca.mp4</video>
+          <video alt="Vídeo de la travesía en barca sobre la ría de Pasaia en el Camino del Norte">multimedia/R003/H003-04_pasaia_travesia.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H003-05">
         <nombre>Zarautz — Playa y casco urbano</nombre>
-        <descripcion>
-          Zarautz cuenta con la playa más larga de Gipuzkoa (2,5 km) y es la capital mundial
-          del surf vasco, sede anual de pruebas del World Surf League. El casco urbano conserva
-          notables edificios renacentistas, como la Torre Luzea y el Palacio de Narros.
-          El amplio paseo marítimo, la animada oferta de pintxos y la tradición surfista
-          hacen de Zarautz una de las paradas más disfrutadas del Camino del Norte.
-        </descripcion>
+        <descripcion>Playa más larga de Gipuzkoa (2,5 km). Capital del surf vasco, sede del World Surf League. Casco urbano con Torre Luzea y Palacio de Narros renacentistas. Excelente oferta de pintxos.</descripcion>
         <coordenadas>
           <longitud>-2.1711</longitud>
           <latitud>43.2843</latitud>
@@ -525,25 +464,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">28.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Zarautz_playa_surf_aerial.jpg</foto>
-          <foto>Zarautz_paseo_maritimo.jpg</foto>
-          <foto>Zarautz_torre_luzea.jpg</foto>
+          <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">multimedia/R003/H003-05_zarautz_playa.jpg</foto>
+          <foto alt="Paseo marítimo de Zarautz con el casco urbano al fondo">multimedia/R003/H003-05_zarautz_paseo.jpg</foto>
+          <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">multimedia/R003/H003-05_zarautz_torre_luzea.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Zarautz_surf_campeonato.mp4</video>
+          <video alt="Vídeo del campeonato de surf del World Surf League en la playa de Zarautz">multimedia/R003/H003-05_zarautz_surf.mp4</video>
         </galeriaVideos>
       </hito>
 
       <hito id="H003-06">
         <nombre>Deba — Colegiata de Santa María</nombre>
-        <descripcion>
-          Punto final del tramo guipuzcoano del Camino del Norte. La Colegiata de Santa María
-          de Deba (siglos XIV-XV) es uno de los monumentos góticos más destacados del País
-          Vasco, con una portada esculpida de excepcional factura y un claustro de gran
-          elegancia. El Camino continúa aquí hacia Markina-Xemein ya en territorio vizcaíno.
-          La villa de Deba conserva además su trazado medieval con calles porticadas y varios
-          palacios renacentistas.
-        </descripcion>
+        <descripcion>Punto final del tramo guipuzcoano. Colegiata gótica de Santa María (ss. XIV-XV) con portada esculpida y claustro elegante. La villa conserva su trazado medieval con calles porticadas y palacios renacentistas.</descripcion>
         <coordenadas>
           <longitud>-2.3521</longitud>
           <latitud>43.2955</latitud>
@@ -551,16 +483,18 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">22.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto>Deba_colegiata_santa_maria_portada.jpg</foto>
-          <foto>Deba_claustro_gotico.jpg</foto>
-          <foto>Deba_casco_medieval.jpg</foto>
+          <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_portada.jpg</foto>
+          <foto alt="Claustro gótico de gran elegancia de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_claustro.jpg</foto>
+          <foto alt="Casco medieval de Deba con sus calles porticadas y arquitectura histórica">multimedia/R003/H003-06_deba_casco.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video>Deba_colegiata_visita_interior.mp4</video>
+          <video alt="Vídeo de visita al interior de la Colegiata de Santa María de Deba">multimedia/R003/H003-06_deba_interior.mp4</video>
         </galeriaVideos>
       </hito>
-
     </hitos>
+
+    <planimetria>output/R003_planimetria.kml</planimetria>
+    <altimetria>output/R003_altimetria.svg</altimetria>
   </ruta>
 
 </rutas>
