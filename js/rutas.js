@@ -126,31 +126,12 @@ class ConstructorHTML {
         if (ruta.fechaInicio) filas.push(["Fecha de inicio", ruta.fechaInicio]);
         if (ruta.horaInicio)  filas.push(["Hora de inicio",  ruta.horaInicio]);
 
-        const $caption = $("<caption>").text("Información general de la ruta");
-        const $thead = $("<thead>").append(
-            $("<tr>")
-                .append($("<th>").attr("scope", "col").text("Campo"))
-                .append($("<th>").attr("scope", "col").text("Valor"))
-        );
-        const $tbody = $("<tbody>");
-
         filas.forEach(([campo, valor]) => {
             if (valor) {
-                $tbody.append(
-                    $("<tr>")
-                        .append($("<th>").attr("scope", "row").text(campo))
-                        .append($("<td>").text(valor))
-                );
+                $sec.append($("<p>").append($("<strong>").text(campo + ": ")).append(document.createTextNode(valor)));
             }
         });
 
-        $sec.append(
-            $("<table>")
-                .attr("aria-label", "Información general de la ruta")
-                .append($caption)
-                .append($thead)
-                .append($tbody)
-        );
         return $sec;
     }
 
