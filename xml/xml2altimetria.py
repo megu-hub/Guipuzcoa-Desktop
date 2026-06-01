@@ -5,7 +5,7 @@ import xml.etree.ElementTree as ET
 import os
 
 # ── Configuración ─────────────────────────────────────────────────────────────
-XML_FILE   = "rutas.xml"
+XML_FILE   = "rutasEsquema.xml"
 OUTPUT_DIR = "."
 
 
