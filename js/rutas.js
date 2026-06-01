@@ -1,28 +1,12 @@
 class LectorXML {
-    leer(archivo) {
-        return new Promise((resolve, reject) => {
-            if (!archivo) {
-                reject(new Error("No se ha seleccionado ningún archivo."));
-                return;
-            }
-            if (!archivo.name.endsWith(".xml")) {
-                reject(new Error("El archivo seleccionado no es XML."));
-                return;
-            }
-            const lector = new FileReader();
-            lector.onload = (e) => {
-                const parser = new DOMParser();
-                const xmlDoc = parser.parseFromString(e.target.result, "text/xml");
-                const error = xmlDoc.querySelector("parsererror");
-                if (error) {
-                    reject(new Error("Error al parsear el XML: " + error.textContent));
-                } else {
-                    resolve(xmlDoc);
-                }
-            };
-            lector.onerror = () => reject(new Error("Error al leer el archivo."));
-            lector.readAsText(archivo);
-        });
+    leerTexto(contenido) {
+        const parser = new DOMParser();
+        const xmlDoc = parser.parseFromString(contenido, "text/xml");
+        const error = xmlDoc.querySelector("parsererror");
+        if (error) {
+            throw new Error("Error al parsear el XML: " + error.textContent);
+        }
+        return xmlDoc;
     }
 }
 
@@ -36,28 +20,28 @@ class ExtractorRutas {
         const rutas = [];
         $(xmlDoc).find("ruta").each((i, rutaElem) => {
             const ruta = {
-                id:               $(rutaElem).attr("id"),
-                nombre:           this._txt(rutaElem, "nombre"),
-                tipo:             this._txt(rutaElem, "tipo"),
-                transporte:       this._txt(rutaElem, "medioTransporte"),
-                fechaInicio:      this._txt(rutaElem, "fechaInicio"),
-                horaInicio:       this._txt(rutaElem, "horaInicio"),
-                duracion:         this._txt(rutaElem, "duracion"),
-                agencia:          this._txt(rutaElem, "agencia"),
-                descripcion:      this._txt(rutaElem, "descripcion"),
-                personas:         this._txt(rutaElem, "personasAdecuadas"),
-                lugarInicio:      this._txt(rutaElem, "lugarInicio"),
-                direccionInicio:  this._txt(rutaElem, "direccionInicio"),
-                recomendacion:    this._txt(rutaElem, "recomendacion"),
-                planimetria:      this._txt(rutaElem, "planimetria"),
-                altimetria:       this._txt(rutaElem, "altimetria"),
+                id:              $(rutaElem).attr("id"),
+                nombre:          this._txt(rutaElem, "nombre"),
+                tipo:            this._txt(rutaElem, "tipo"),
+                transporte:      this._txt(rutaElem, "medioTransporte"),
+                fechaInicio:     this._txt(rutaElem, "fechaInicio"),
+                horaInicio:      this._txt(rutaElem, "horaInicio"),
+                duracion:        this._txt(rutaElem, "duracion"),
+                agencia:         this._txt(rutaElem, "agencia"),
+                descripcion:     this._txt(rutaElem, "descripcion"),
+                personas:        this._txt(rutaElem, "personasAdecuadas"),
+                lugarInicio:     this._txt(rutaElem, "lugarInicio"),
+                direccionInicio: this._txt(rutaElem, "direccionInicio"),
+                recomendacion:   this._txt(rutaElem, "recomendacion"),
+                planimetria:     this._txt(rutaElem, "planimetria"),
+                altimetria:      this._txt(rutaElem, "altimetria"),
                 coordenadasInicio: {
                     longitud: parseFloat(this._txt(rutaElem, "coordenadasInicio longitud")),
                     latitud:  parseFloat(this._txt(rutaElem, "coordenadasInicio latitud")),
                     altitud:  parseFloat(this._txt(rutaElem, "coordenadasInicio altitud"))
                 },
                 referencias: [],
-                hitos:        []
+                hitos: []
             };
 
             $(rutaElem).find("referencias referencia").each((j, refElem) => {
@@ -105,7 +89,7 @@ class ExtractorRutas {
 
 class ConstructorHTML {
     renderizar(rutas) {
-        $("#mensaje-carga").remove();
+        $("main p").remove();
         rutas.forEach((ruta) => {
             $("main").append(this._crearSeccionRuta(ruta));
         });
@@ -128,31 +112,45 @@ class ConstructorHTML {
         $sec.append($("<h4>").text("Información general"));
 
         const filas = [
-            ["Tipo",                  ruta.tipo],
-            ["Medio de transporte",   ruta.transporte],
-            ["Duración",              ruta.duracion],
-            ["Agencia",               ruta.agencia],
-            ["Descripción",           ruta.descripcion],
-            ["Personas adecuadas",    ruta.personas],
-            ["Lugar de inicio",       ruta.lugarInicio],
-            ["Dirección de inicio",   ruta.direccionInicio],
-            ["Recomendación",         ruta.recomendacion + " / 10"]
+            ["Tipo",                ruta.tipo],
+            ["Medio de transporte", ruta.transporte],
+            ["Duración",            ruta.duracion],
+            ["Agencia",             ruta.agencia],
+            ["Descripción",         ruta.descripcion],
+            ["Personas adecuadas",  ruta.personas],
+            ["Lugar de inicio",     ruta.lugarInicio],
+            ["Dirección de inicio", ruta.direccionInicio],
+            ["Recomendación",       ruta.recomendacion ? ruta.recomendacion + " / 10" : ""]
         ];
 
         if (ruta.fechaInicio) filas.push(["Fecha de inicio", ruta.fechaInicio]);
         if (ruta.horaInicio)  filas.push(["Hora de inicio",  ruta.horaInicio]);
 
+        const $caption = $("<caption>").text("Información general de la ruta");
+        const $thead = $("<thead>").append(
+            $("<tr>")
+                .append($("<th>").attr("scope", "col").text("Campo"))
+                .append($("<th>").attr("scope", "col").text("Valor"))
+        );
         const $tbody = $("<tbody>");
+
         filas.forEach(([campo, valor]) => {
             if (valor) {
                 $tbody.append(
                     $("<tr>")
-                        .append($("<th>").text(campo))
+                        .append($("<th>").attr("scope", "row").text(campo))
                         .append($("<td>").text(valor))
                 );
             }
         });
-        $sec.append($("<table>").append($tbody));
+
+        $sec.append(
+            $("<table>")
+                .attr("aria-label", "Información general de la ruta")
+                .append($caption)
+                .append($thead)
+                .append($tbody)
+        );
         return $sec;
     }
 
@@ -224,29 +222,29 @@ class ConstructorHTML {
     }
 
     _crearSeccionMapa(ruta) {
-        const $sec   = $("<section>");
-        const $label = $("<label>").attr("for", "kml-" + ruta.id).text("Cargar archivo KML de la planimetría:");
-        const $input = $("<input>").attr("type", "file").attr("accept", ".kml").attr("name", "kml-" + ruta.id);
-        const $mapaDiv = $("<div>").addClass("mapa-ruta").attr("data-ruta-id", ruta.id);
+        const $sec            = $("<section>");
+        const $mapaContenedor = $("<section>").addClass("mapa-ruta");
+        const $label          = $("<label>").text("Cargar archivo KML de la planimetría:");
+        const $input          = $("<input>").attr("type", "file").attr("accept", ".kml");
 
         $sec.append($("<h4>").text("Planimetría (Mapa KML)"));
 
         $input.on("change", (e) => {
             const archivo = e.target.files[0];
             if (archivo) {
-                new CargadorKML($mapaDiv[0], ruta.coordenadasInicio).leerArchivoKML(archivo);
+                new CargadorKML($mapaContenedor[0], ruta.coordenadasInicio).leerArchivoKML(archivo);
             }
         });
 
-        $sec.append($label).append($input).append($mapaDiv);
+        $sec.append($label).append($input).append($mapaContenedor);
         return $sec;
     }
 
     _crearSeccionAltimetria(ruta) {
         const $sec        = $("<section>");
+        const $contenedor = $("<figure>");
         const $label      = $("<label>").text("Cargar archivo SVG de la altimetría:");
         const $input      = $("<input>").attr("type", "file").attr("accept", ".svg");
-        const $contenedor = $("<figure>");
 
         $sec.append($("<h4>").text("Altimetría (SVG)"));
 
@@ -365,7 +363,7 @@ class CargadorSVGRutas {
         const svgElem = docSVG.documentElement;
 
         if (svgElem.querySelector("parsererror")) {
-            alert("Error al procesar el archivo SVG.");
+            $(this.contenedor).append($("<p>").text("Error al procesar el archivo SVG."));
             return;
         }
 
@@ -412,21 +410,29 @@ class CargadorSVGRutas {
 }
 
 $(document).ready(() => {
-    const lectorXML  = new LectorXML();
-    const extractor  = new ExtractorRutas();
+    const lectorXML   = new LectorXML();
+    const extractor   = new ExtractorRutas();
     const constructor = new ConstructorHTML();
 
-    $("#archivo-xml").on("change", function () {
-        lectorXML.leer(this.files[0])
-            .then((xmlDoc) => {
-                const rutas = extractor.extraer(xmlDoc);
+    $.ajax({
+        type:     "GET",
+        url:      "xml/rutasEsquema.xml",
+        dataType: "text",
+        success: (texto) => {
+            try {
+                const xmlDoc = lectorXML.leerTexto(texto);
+                const rutas  = extractor.extraer(xmlDoc);
                 if (rutas.length === 0) {
-                    alert("No se encontraron rutas en el archivo XML.");
+                    $("main p").text("No se encontraron rutas en el archivo XML.");
                     return;
                 }
-                $("main section").remove();
                 constructor.renderizar(rutas);
-            })
-            .catch((err) => alert("Error: " + err.message));
+            } catch (err) {
+                $("main p").text("Error al procesar el XML: " + err.message);
+            }
+        },
+        error: (xhr) => {
+            $("main p").text("Error al cargar las rutas (estado: " + xhr.status + ").");
+        }
     });
 });
