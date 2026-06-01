@@ -6,7 +6,7 @@ import os
 
 # ── Configuración ─────────────────────────────────────────────────────────────
 XML_FILE   = "rutas.xml"
-OUTPUT_DIR = "output"
+OUTPUT_DIR = "."
 
 
 class Svg:

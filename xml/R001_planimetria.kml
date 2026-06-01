@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Ruta de la Costa Vasca: De Getaria a Zumaia</name>
+    <description>Recorrido a pie por los acantilados y playas de la costa guipuzcoana, desde Getaria hasta Zumaia, atravesando el Geoparque Mundial UNESCO del Flysch.</description>
+    <Placemark>
+      <name>Puerto pesquero de Getaria</name>
+      <description>Punto de partida. Puerto pintoresco con flota pesquera activa. Frente a él se alza la isla de San Antón (el Ratón de Getaria). Cuna de Juan Sebastián Elcano y Cristóbal Balenciaga.</description>
+      <Point>
+        <coordinates>-2.2028,43.3001,5</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Museo Cristóbal Balenciaga</name>
+      <description>Museo dedicado al modisto nacido en Getaria en 1895. El edificio combina palacio histórico y volumen de cristal contemporáneo. Más de 1.200 piezas originales del diseñador.</description>
+      <Point>
+        <coordinates>-2.2041,43.3010,12</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Playa de Malkorbe</name>
+      <description>Playa virgen de acceso difícil entre Getaria y Zumaia. Arenas doradas rodeadas de acantilados. Zona de especial protección medioambiental con avistamiento de aves marinas.</description>
+      <Point>
+        <coordinates>-2.2280,43.2967,3</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Acantilados del Flysch de Zumaia</name>
+      <description>Acantilados con sección estratigráfica continua de 50 millones de años. Geoparque Mundial UNESCO desde 2015. Sus estratos muestran el límite K-Pg relacionado con la extinción de los dinosaurios.</description>
+      <Point>
+        <coordinates>-2.2500,43.2920,80</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Playa de Itzurun</name>
+      <description>Playa espectacular flanqueada por acantilados de flysch. Escenario de rodaje de Juego de Tronos (Rocadragón). Permite apreciar de cerca las formaciones rocosas del Geoparque.</description>
+      <Point>
+        <coordinates>-2.2549,43.2887,2</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Centro de Interpretación Algorri (Zumaia)</name>
+      <description>Centro geológico del Geoparque en el casco histórico de Zumaia. Exposiciones interactivas sobre el flysch. Punto final de la ruta, en una antigua estructura portuaria rehabilitada.</description>
+      <Point>
+        <coordinates>-2.2561,43.2895,10</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Recorrido — Ruta de la Costa Vasca: De Getaria a Zumaia</name>
+      <Style>
+        <LineStyle>
+          <color>ff0000ff</color>
+          <width>4</width>
+        </LineStyle>
+      </Style>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellation>1</tessellation>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-2.2028,43.3001,5
+-2.2035,43.2998,6
+-2.2041,43.3010,12
+-2.2055,43.3005,15
+-2.2080,43.2995,22
+-2.2110,43.2985,35
+-2.2145,43.2975,48
+-2.2175,43.2970,30
+-2.2210,43.2965,10
+-2.2245,43.2960,5
+-2.2280,43.2967,3
+-2.2310,43.2958,20
+-2.2340,43.2945,45
+-2.2370,43.2935,65
+-2.2400,43.2928,78
+-2.2430,43.2922,80
+-2.2465,43.2918,75
+-2.2500,43.2920,80
+-2.2510,43.2912,60
+-2.2520,43.2900,35
+-2.2535,43.2892,12
+-2.2549,43.2887,2
+-2.2552,43.2889,5
+-2.2555,43.2891,8
+-2.2558,43.2893,9
+-2.2561,43.2895,10</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

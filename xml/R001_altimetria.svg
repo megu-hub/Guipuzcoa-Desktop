@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" width="800" height="600">
+  <line x1="100" y1="100" x2="100" y2="500" stroke="black" stroke-width="2" />
+  <line x1="100" y1="500" x2="700" y2="500" stroke="black" stroke-width="2" />
+  <text x="40" y="105" font-family="Arial" font-size="14" style="fill:black">80m</text>
+  <text x="40" y="505" font-family="Arial" font-size="14" style="fill:black">2m</text>
+  <text x="320.0" y="540" font-family="Arial" font-size="16" style="fill:black">Distancia total: 6.5 km</text>
+  <text x="250.0" y="80" font-family="Arial" font-size="14" style="fill:black;font-weight:bold">Ruta de la Costa Vasca: De Getaria a Zumaia</text>
+  <polyline points="100.0,453.8 100.0,453.8 123.3,423.9 383.7,462.4 579.1,133.3 653.5,466.7 700.0,432.5 700.0,500.0 100.0,500.0" stroke="blue" stroke-width="4" fill="lightblue" />
+  <line x1="579.1" y1="133.3" x2="579.1" y2="115.3" stroke="black" stroke-width="1" />
+  <text x="561.1" y="111.3" font-family="Arial" font-size="12" style="fill:black;font-weight:bold">80m</text>
+</svg>

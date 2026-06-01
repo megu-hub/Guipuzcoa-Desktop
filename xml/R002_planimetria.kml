@@ -1,0 +1,94 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Ruta de Pintxos y Monumentos por la Parte Vieja de Donostia</name>
+    <description>Recorrido por la Parte Vieja de San Sebastián que combina arquitectura histórica con la cultura del pintxo vasco, terminando con las vistas de La Concha desde el Monte Urgull.</description>
+    <Placemark>
+      <name>Plaza de la Constitución</name>
+      <description>Corazón histórico de la Parte Vieja. Plaza porticada del siglo XIX, antigua plaza de toros. Los números en los balcones eran palcos de alquiler. Epicentro de la vida social donostiarra.</description>
+      <Point>
+        <coordinates>-1.9762,43.3228,7</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Basílica de Santa María del Coro</name>
+      <description>Joya del barroco vasco (1743-1774). Fachada churrigueresca de dos torres. Patrona de San Sebastián. Alberga obras de arte entre ellas un Cristo atribuido al círculo de Gregorio Fernández.</description>
+      <Point>
+        <coordinates>-1.9754,43.3221,8</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Calle 31 de Agosto — Zona de Pintxos</name>
+      <description>Calle más célebre de la Parte Vieja y epicentro mundial del pintxo. Bares premiados como La Cuchara de San Telmo, Borda Berri y Bar Zeruko. Txangurro, foie micuit y pintxo de autor.</description>
+      <Point>
+        <coordinates>-1.9768,43.3232,7</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Mercado de La Bretxa</name>
+      <description>Mercado tradicional renovado en 2001. Pescados del Cantábrico, verduras de Tolosa, queso idiazabal y alubias de Tolosa. Historia que se remonta al siglo XIV, antiguo mercado extramuros.</description>
+      <Point>
+        <coordinates>-1.9790,43.3245,6</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Castillo de La Mota — Monte Urgull</name>
+      <description>Fortaleza medieval del siglo XII que corona el Monte Urgull. Mejores vistas panorámicas de San Sebastián: La Concha, isla de Santa Clara y Monte Igueldo. Estatua del Sagrado Corazón de 12 metros.</description>
+      <Point>
+        <coordinates>-1.9718,43.3262,123</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Playa de La Concha</name>
+      <description>Una de las playas urbanas más bellas de Europa. Bahía en forma de concha con el Palacio de Miramar y la isla de Santa Clara. Hasta 30.000 bañistas diarios en verano. Cierre espectacular del recorrido.</description>
+      <Point>
+        <coordinates>-1.9843,43.3189,1</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Recorrido — Ruta de Pintxos y Monumentos por la Parte Vieja de Donostia</name>
+      <Style>
+        <LineStyle>
+          <color>ff0000ff</color>
+          <width>4</width>
+        </LineStyle>
+      </Style>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellation>1</tessellation>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-1.9762,43.3228,7
+-1.9757,43.3225,7
+-1.9754,43.3221,8
+-1.9758,43.3224,7
+-1.9762,43.3228,7
+-1.9765,43.3230,7
+-1.9768,43.3232,7
+-1.9774,43.3236,7
+-1.9780,43.3240,6
+-1.9785,43.3243,6
+-1.9790,43.3245,6
+-1.9785,43.3248,7
+-1.9775,43.3252,10
+-1.9760,43.3256,18
+-1.9745,43.3259,35
+-1.9730,43.3261,70
+-1.9718,43.3262,123
+-1.9725,43.3258,90
+-1.9738,43.3248,55
+-1.9758,43.3232,20
+-1.9780,43.3220,10
+-1.9800,43.3210,5
+-1.9820,43.3200,2
+-1.9835,43.3193,1
+-1.9843,43.3189,1</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

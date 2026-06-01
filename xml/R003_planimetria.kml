@@ -1,0 +1,115 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Ruta del Camino de Santiago del Norte por Gipuzkoa</name>
+    <description>Tramo guipuzcoano del Camino de Santiago del Norte, desde Irún hasta Deba (~85 km). Acantilados, rías, bosques atlánticos y caseríos vascos. Itinerario Cultural Europeo del Consejo de Europa.</description>
+    <Placemark>
+      <name>Puente Internacional de Behobia (Irún)</name>
+      <description>Inicio del Camino del Norte en España. El puente une Irún con Hendaya (Francia) por el río Bidasoa. Ermita de San Marcial como primer hito espiritual, con vistas a la bahía de Txingudi.</description>
+      <Point>
+        <coordinates>-1.7742,43.3471,10</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Casco histórico de Hondarribia</name>
+      <description>Villa medieval amurallada declarada Conjunto Monumental. Murallas del siglo XV, Castillo de Carlos V (Parador Nacional) y barrio de la Marina con casas porticadas de colores. Escenario de los Sitios de los siglos XVII-XVIII.</description>
+      <Point>
+        <coordinates>-1.7975,43.3648,25</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Monte Jaizkibel y Santuario de la Virgen de Guadalupe</name>
+      <description>Monte litoral más alto de la costa vasca (547 m). Vistas del Cantábrico, los Pirineos y la costa francesa. Santuario de Guadalupe (s. XVI), tradicional punto de descanso jacobeo.</description>
+      <Point>
+        <coordinates>-1.8524,43.3715,450</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Pasajes de San Juan (Pasaia Donibane)</name>
+      <description>Pueblo de pescadores en la ría de Pasaia. Se cruza en barca de remo (rito del Camino). Víctor Hugo vivió aquí en 1843. Paseo marítimo único entre casas de piedra reflejadas en el agua.</description>
+      <Point>
+        <coordinates>-1.9262,43.3398,5</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Zarautz — Playa y casco urbano</name>
+      <description>Playa más larga de Gipuzkoa (2,5 km). Capital del surf vasco, sede del World Surf League. Casco urbano con Torre Luzea y Palacio de Narros renacentistas. Excelente oferta de pintxos.</description>
+      <Point>
+        <coordinates>-2.1711,43.2843,3</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Deba — Colegiata de Santa María</name>
+      <description>Punto final del tramo guipuzcoano. Colegiata gótica de Santa María (ss. XIV-XV) con portada esculpida y claustro elegante. La villa conserva su trazado medieval con calles porticadas y palacios renacentistas.</description>
+      <Point>
+        <coordinates>-2.3521,43.2955,8</coordinates>
+        <altitudeMode>relativeToGround</altitudeMode>
+      </Point>
+    </Placemark>
+    <Placemark>
+      <name>Recorrido — Ruta del Camino de Santiago del Norte por Gipuzkoa</name>
+      <Style>
+        <LineStyle>
+          <color>ff0000ff</color>
+          <width>4</width>
+        </LineStyle>
+      </Style>
+      <LineString>
+        <extrude>1</extrude>
+        <tessellation>1</tessellation>
+        <altitudeMode>relativeToGround</altitudeMode>
+        <coordinates>-1.7742,43.3471,10
+-1.7800,43.3490,15
+-1.7860,43.3520,20
+-1.7920,43.3560,22
+-1.7975,43.3648,25
+-1.8020,43.3670,40
+-1.8080,43.3685,80
+-1.8150,43.3700,150
+-1.8230,43.3710,250
+-1.8320,43.3715,350
+-1.8400,43.3718,420
+-1.8460,43.3716,450
+-1.8524,43.3715,450
+-1.8600,43.3700,400
+-1.8680,43.3680,320
+-1.8760,43.3640,220
+-1.8840,43.3580,120
+-1.8920,43.3510,60
+-1.9000,43.3460,30
+-1.9080,43.3435,15
+-1.9160,43.3415,8
+-1.9210,43.3408,5
+-1.9262,43.3398,5
+-1.9380,43.3350,20
+-1.9500,43.3280,55
+-1.9620,43.3180,80
+-1.9750,43.3080,40
+-1.9900,43.2990,15
+-2.0060,43.2930,10
+-2.0250,43.2880,8
+-2.0450,43.2860,5
+-2.0650,43.2850,5
+-2.0850,43.2845,5
+-2.1050,43.2844,4
+-2.1250,43.2843,3
+-2.1450,43.2843,3
+-2.1711,43.2843,3
+-2.1900,43.2855,10
+-2.2100,43.2870,25
+-2.2300,43.2890,40
+-2.2500,43.2910,30
+-2.2700,43.2925,15
+-2.2900,43.2938,8
+-2.3100,43.2945,8
+-2.3300,43.2950,8
+-2.3521,43.2955,8</coordinates>
+      </LineString>
+    </Placemark>
+  </Document>
+</kml>

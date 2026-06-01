@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rutas SYSTEM "rutas.dtd">
-<rutas provincia="Gipuzkoa" pais="España" region="País Vasco">
-
-  <!-- ==================== RUTA 1 ==================== -->
+<rutas provincia="Gipuzkoa" pais="España" region="País Vasco" xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
   <ruta id="R001">
     <nombre>Ruta de la Costa Vasca: De Getaria a Zumaia</nombre>
     <tipo>Paisajística</tipo>
