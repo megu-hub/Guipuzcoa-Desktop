@@ -204,39 +204,45 @@ class ConstructorHTML {
 
     _crearSeccionMapa(ruta) {
         const $sec            = $("<section>");
-        const $mapaContenedor = $("<section>").addClass("mapa-ruta");
-        const $label          = $("<label>").text("Cargar archivo KML de la planimetría:");
-        const $input          = $("<input>").attr("type", "file").attr("accept", ".kml");
+        const $mapaContenedor = $("<div>").addClass("mapa-ruta");
 
         $sec.append($("<h4>").text("Planimetría (Mapa KML)"));
+        $sec.append($mapaContenedor);
 
-        $input.on("change", (e) => {
-            const archivo = e.target.files[0];
-            if (archivo) {
-                new CargadorKML($mapaContenedor[0], ruta.coordenadasInicio).leerArchivoKML(archivo);
+        const kmlUrl = `xml/${ruta.id}-planimetria.kml`;
+        $.ajax({
+            url:      kmlUrl,
+            dataType: "text",
+            success: (contenido) => {
+                new CargadorKML($mapaContenedor[0], ruta.coordenadasInicio).cargarDesdeTexto(contenido);
+            },
+            error: () => {
+                $mapaContenedor.text("No se pudo cargar el KML: " + kmlUrl);
             }
         });
 
-        $sec.append($label).append($input).append($mapaContenedor);
         return $sec;
     }
 
     _crearSeccionAltimetria(ruta) {
         const $sec        = $("<section>");
         const $contenedor = $("<figure>");
-        const $label      = $("<label>").text("Cargar archivo SVG de la altimetría:");
-        const $input      = $("<input>").attr("type", "file").attr("accept", ".svg");
 
         $sec.append($("<h4>").text("Altimetría (SVG)"));
+        $sec.append($contenedor);
 
-        $input.on("change", (e) => {
-            const archivo = e.target.files[0];
-            if (archivo) {
-                new CargadorSVGRutas($contenedor[0], ruta.hitos).leerArchivoSVG(archivo);
+        const svgUrl = `xml/${ruta.id}-altimetria.svg`;
+        $.ajax({
+            url:      svgUrl,
+            dataType: "text",
+            success: (contenido) => {
+                new CargadorSVGRutas($contenedor[0], ruta.hitos).cargarDesdeTexto(contenido);
+            },
+            error: () => {
+                $contenedor.append($("<p>").text("No se pudo cargar el SVG: " + svgUrl));
             }
         });
 
-        $sec.append($label).append($input).append($contenedor);
         return $sec;
     }
 }
@@ -246,6 +252,10 @@ class CargadorKML {
         this.contenedor  = contenedor;
         this.coordInicio = coordInicio;
         this.mapa        = null;
+    }
+
+    cargarDesdeTexto(contenidoKML) {
+        this._procesarKML(contenidoKML);
     }
 
     leerArchivoKML(archivo) {
@@ -298,7 +308,9 @@ class CargadorKML {
         });
 
         this.mapa.on('load', () => {
-            const marcadorElem = document.createElement('section');
+            this.mapa.resize();
+
+            const marcadorElem = document.createElement('div');
             marcadorElem.style.cssText = 'width:14px;height:14px;background:#e53935;border:2px solid #fff;border-radius:50%';
 
             new mapboxgl.Marker(marcadorElem)
@@ -330,6 +342,10 @@ class CargadorSVGRutas {
     constructor(contenedor, hitos) {
         this.contenedor = contenedor;
         this.hitos      = hitos;
+    }
+
+    cargarDesdeTexto(contenidoSVG) {
+        this._procesarSVG(contenidoSVG);
     }
 
     leerArchivoSVG(archivo) {
