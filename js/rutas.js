@@ -239,7 +239,7 @@ class ConstructorHTML {
                 const docSVG  = new DOMParser().parseFromString(contenido, "image/svg+xml");
                 const svgElem = docSVG.documentElement;
                 if (!svgElem.querySelector("parsererror")) {
-                    svgElem.setAttribute("width",  "100%");
+                    svgElem.setAttribute("width",  "50%");
                     svgElem.removeAttribute("height");
                     $contenedor.empty().append(svgElem);
                 }

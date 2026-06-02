@@ -1,12 +1,24 @@
 <?xml version='1.0' encoding='utf-8'?>
-<svg xmlns="http://www.w3.org/2000/svg" version="2.0" width="800" height="600">
-  <line x1="100" y1="100" x2="100" y2="500" stroke="black" stroke-width="2" />
-  <line x1="100" y1="500" x2="700" y2="500" stroke="black" stroke-width="2" />
+<svg xmlns="http://www.w3.org/2000/svg" version="2.0" width="800" height="900" viewBox="0 0 800 900">
+  <line x1="100" y1="100" x2="100" y2="400" stroke="black" stroke-width="2" />
+  <line x1="100" y1="400" x2="700" y2="400" stroke="black" stroke-width="2" />
   <text x="40" y="105" font-family="Arial" font-size="14" style="fill:black">123m</text>
-  <text x="40" y="505" font-family="Arial" font-size="14" style="fill:black">1m</text>
-  <text x="320.0" y="540" font-family="Arial" font-size="16" style="fill:black">Distancia total: 2.3 km</text>
+  <text x="40" y="405" font-family="Arial" font-size="14" style="fill:black">1m</text>
+  <text x="320.0" y="440" font-family="Arial" font-size="16" style="fill:black">Distancia total: 2.3 km</text>
   <text x="250.0" y="80" font-family="Arial" font-size="14" style="fill:black;font-weight:bold">Ruta de Pintxos y Monumentos por la Parte Vieja de Donostia</text>
-  <polyline points="100.0,450.3 100.0,450.3 139.1,447.5 191.3,450.3 282.6,453.0 465.2,133.3 700.0,466.7 700.0,500.0 100.0,500.0" stroke="blue" stroke-width="4" fill="lightblue" />
-  <line x1="465.2" y1="133.3" x2="465.2" y2="115.3" stroke="black" stroke-width="1" />
-  <text x="447.2" y="111.3" font-family="Arial" font-size="12" style="fill:black;font-weight:bold">123m</text>
+  <polyline points="100.0,362.7 100.0,362.7 139.1,360.7 191.3,362.7 282.6,364.8 465.2,125.0 700.0,375.0 700.0,400.0 100.0,400.0" stroke="blue" stroke-width="4" fill="lightblue" />
+  <line x1="465.2" y1="125.0" x2="465.2" y2="107.0" stroke="black" stroke-width="1" />
+  <text x="447.2" y="103.0" font-family="Arial" font-size="12" style="fill:black;font-weight:bold">123m</text>
+  <line x1="185.7" y1="40" x2="185.7" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="185.7" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,185.7,44)">Plaza de la Constitución</text>
+  <line x1="271.4" y1="40" x2="271.4" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="271.4" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,271.4,44)">Basílica de Santa María del Coro</text>
+  <line x1="357.1" y1="40" x2="357.1" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="357.1" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,357.1,44)">Calle 31 de Agosto — Zona de Pintxos</text>
+  <line x1="442.9" y1="40" x2="442.9" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="442.9" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,442.9,44)">Mercado de La Bretxa</text>
+  <line x1="528.6" y1="40" x2="528.6" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="528.6" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,528.6,44)">Castillo de La Mota — Monte Urgull</text>
+  <line x1="614.3" y1="40" x2="614.3" y2="400" stroke="#9e9e9e" stroke-width="1" stroke-dasharray="4 3" />
+  <text x="614.3" y="44" font-family="Arial" font-size="9" fill="#1a237e" text-anchor="end" transform="rotate(-90,614.3,44)">Playa de La Concha</text>
 </svg>

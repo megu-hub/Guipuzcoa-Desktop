@@ -4,17 +4,18 @@
 import xml.etree.ElementTree as ET
 import os
 
-XML_FILE   = "rutasEsquema.xml"
+XML_FILE   = "rutas.xml"
 OUTPUT_DIR = "."
 
 
 class Svg:
-    def __init__(self, width="800", height="600"):
+    def __init__(self, width="800", height="900"):
         self.raiz = ET.Element('svg',
                                xmlns="http://www.w3.org/2000/svg",
                                version="2.0",
                                width=width,
-                               height=height)
+                               height=height,
+                               viewBox=f"0 0 {width} {height}")
 
     def addPolyline(self, points, stroke, strokeWidth, fill):
         ET.SubElement(self.raiz, 'polyline',
@@ -85,7 +86,7 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo, hitos=None):
     nuevoSVG = Svg()
 
     ancho_svg = 800
-    alto_svg  = 600
+    alto_svg  = 500
     margen    = 100
 
     altitudes = [p['alt'] for p in datos_puntos]
