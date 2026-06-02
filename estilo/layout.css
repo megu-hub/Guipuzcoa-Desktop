@@ -21,8 +21,8 @@ header{
     padding: 0 1em;
 }
 
-/* Especifidad 002 */
-body > div {
+/* Especifidad 001 */
+div {
     width: 100%;
     height: 31.25em;
 }

@@ -59,9 +59,6 @@
         <galeriaFotos>
           <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">../multimedia/R001/H001-02_museo_fachada.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de visita virtual a las salas del Museo Cristóbal Balenciaga">../multimedia/R001/H001-02_museo_visita_virtual.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H001-03">
@@ -75,7 +72,6 @@
         <distanciaDesdeAnterior unidades="km">2.8</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">../multimedia/R001/H001-03_malkorbe_aerea.jpg</foto>
-          <foto alt="Acantilados que flanquean la playa de Malkorbe en la costa vasca">../multimedia/R001/H001-03_malkorbe_acantilados.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -90,11 +86,7 @@
         <distanciaDesdeAnterior unidades="km">2.1</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">../multimedia/R001/H001-04_flysch_estratos.jpg</foto>
-          <foto alt="Panorámica aérea de los acantilados del Geoparque del Flysch de Zumaia">../multimedia/R001/H001-04_flysch_panoramica.jpg</foto>
-        </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Documental geológico sobre la formación y significado del flysch de Zumaia">../multimedia/R001/H001-04_flysch_documental.mp4</video>
-        </galeriaVideos>
+          </galeriaFotos>
       </hito>
 
       <hito id="H001-05">
@@ -108,7 +100,6 @@
         <distanciaDesdeAnterior unidades="m">800</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">../multimedia/R001/H001-05_itzurun_playa.jpg</foto>
-          <foto alt="Atardecer sobre la playa de Itzurun y los acantilados de Zumaia">../multimedia/R001/H001-05_itzurun_atardecer.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
           <video alt="Vídeo de dron sobrevolando la playa de Itzurun y los acantilados de flysch">../multimedia/R001/H001-05_itzurun_drone.mp4</video>
@@ -203,11 +194,7 @@
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">../multimedia/R002/H002-01_plaza_panoramica.jpg</foto>
-          <foto alt="Pórticos y bares de la Plaza de la Constitución iluminados de noche">../multimedia/R002/H002-01_plaza_noche.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo del ambiente veraniego en la Plaza de la Constitución durante la Semana Grande">../multimedia/R002/H002-01_plaza_ambiente.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H002-02">
@@ -236,11 +223,7 @@
         <distanciaDesdeAnterior unidades="m">200</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">../multimedia/R002/H002-03_calle31_bares.jpg</foto>
-          <foto alt="Barra repleta de pintxos variados en un bar de la Calle 31 de Agosto">../multimedia/R002/H002-03_calle31_barra.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo del animado ambiente de tarde en los bares de pintxos de Donostia">../multimedia/R002/H002-03_calle31_ambiente.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H002-04">
@@ -253,7 +236,6 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">350</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Puestos de pescado fresco del Cantábrico en el Mercado de La Bretxa">../multimedia/R002/H002-04_bretxa_pescado.jpg</foto>
           <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">../multimedia/R002/H002-04_bretxa_idiazabal.jpg</foto>
         </galeriaFotos>
       </hito>
@@ -271,9 +253,6 @@
           <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">../multimedia/R002/H002-05_urgull_castillo.jpg</foto>
           <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">../multimedia/R002/H002-05_urgull_bahia.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo panorámica 360 grados desde la cima del Monte Urgull de San Sebastián">../multimedia/R002/H002-05_urgull_panoramica360.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H002-06">
@@ -287,11 +266,7 @@
         <distanciaDesdeAnterior unidades="m">900</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">../multimedia/R002/H002-06_concha_aerea.jpg</foto>
-          <foto alt="Atardecer sobre la Bahía de La Concha con la isla de Santa Clara">../multimedia/R002/H002-06_concha_atardecer.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la Playa de La Concha en verano">../multimedia/R002/H002-06_concha_drone.mp4</video>
-        </galeriaVideos>
       </hito>
     </hitos>
 
@@ -366,11 +341,7 @@
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">../multimedia/R003/H003-01_behobia_puente.jpg</foto>
-          <foto alt="Vista de la bahía de Txingudi desde las inmediaciones del Puente de Behobia">../multimedia/R003/H003-01_txingudi_bahia.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo del inicio del Camino del Norte desde el Puente de Behobia en Irún">../multimedia/R003/H003-01_inicio_camino.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H003-02">
@@ -384,11 +355,7 @@
         <distanciaDesdeAnterior unidades="km">4.5</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">../multimedia/R003/H003-02_hondarribia_murallas.jpg</foto>
-          <foto alt="Casas porticadas de colores del barrio de la Marina de Hondarribia">../multimedia/R003/H003-02_hondarribia_marina.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de visita al casco histórico medieval de Hondarribia">../multimedia/R003/H003-02_hondarribia_visita.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H003-03">
@@ -402,7 +369,6 @@
         <distanciaDesdeAnterior unidades="km">8.2</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_panoramica.jpg</foto>
-          <foto alt="Santuario de la Virgen de Guadalupe en las laderas del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_santuario.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
           <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_drone.mp4</video>
@@ -420,11 +386,7 @@
         <distanciaDesdeAnterior unidades="km">12.3</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">../multimedia/R003/H003-04_pasaia_casas.jpg</foto>
-          <foto alt="Travesía en barca de remo para cruzar la ría de Pasaia en el Camino del Norte">../multimedia/R003/H003-04_pasaia_barca.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de la travesía en barca sobre la ría de Pasaia en el Camino del Norte">../multimedia/R003/H003-04_pasaia_travesia.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H003-05">
@@ -440,9 +402,6 @@
           <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">../multimedia/R003/H003-05_zarautz_playa.jpg</foto>
           <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">../multimedia/R003/H003-05_zarautz_torre_luzea.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo del campeonato de surf del World Surf League en la playa de Zarautz">../multimedia/R003/H003-05_zarautz_surf.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H003-06">
@@ -456,11 +415,7 @@
         <distanciaDesdeAnterior unidades="km">22.1</distanciaDesdeAnterior>
         <galeriaFotos>
           <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">../multimedia/R003/H003-06_deba_portada.jpg</foto>
-          <foto alt="Casco medieval de Deba con sus calles porticadas y arquitectura histórica">../multimedia/R003/H003-06_deba_casco.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de visita al interior de la Colegiata de Santa María de Deba">../multimedia/R003/H003-06_deba_interior.mp4</video>
-        </galeriaVideos>
       </hito>
     </hitos>
 
