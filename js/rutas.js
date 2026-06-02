@@ -209,7 +209,7 @@ class ConstructorHTML {
         $sec.append($("<h4>").text("Planimetría (Mapa KML)"));
         $sec.append($mapaContenedor);
 
-        const kmlUrl = `xml/${ruta.id}-planimetria.kml`;
+        const kmlUrl = `xml/${ruta.id}_planimetria.kml`;
         $.ajax({
             url:      kmlUrl,
             dataType: "text",
@@ -231,12 +231,18 @@ class ConstructorHTML {
         $sec.append($("<h4>").text("Altimetría (SVG)"));
         $sec.append($contenedor);
 
-        const svgUrl = `xml/${ruta.id}-altimetria.svg`;
+        const svgUrl = `xml/${ruta.id}_altimetria.svg`;
         $.ajax({
             url:      svgUrl,
             dataType: "text",
             success: (contenido) => {
-                new CargadorSVGRutas($contenedor[0], ruta.hitos).cargarDesdeTexto(contenido);
+                const docSVG  = new DOMParser().parseFromString(contenido, "image/svg+xml");
+                const svgElem = docSVG.documentElement;
+                if (!svgElem.querySelector("parsererror")) {
+                    svgElem.setAttribute("width",  "100%");
+                    svgElem.removeAttribute("height");
+                    $contenedor.empty().append(svgElem);
+                }
             },
             error: () => {
                 $contenedor.append($("<p>").text("No se pudo cargar el SVG: " + svgUrl));
@@ -334,74 +340,6 @@ class CargadorKML {
                     paint:  { 'line-color': '#1565C0', 'line-width': 4 }
                 });
             }
-        });
-    }
-}
-
-class CargadorSVGRutas {
-    constructor(contenedor, hitos) {
-        this.contenedor = contenedor;
-        this.hitos      = hitos;
-    }
-
-    cargarDesdeTexto(contenidoSVG) {
-        this._procesarSVG(contenidoSVG);
-    }
-
-    leerArchivoSVG(archivo) {
-        const lector = new FileReader();
-        lector.onload  = (e) => this._procesarSVG(e.target.result);
-        lector.onerror = () => alert("Error al leer el archivo SVG.");
-        lector.readAsText(archivo);
-    }
-
-    _procesarSVG(contenidoSVG) {
-        const docSVG  = new DOMParser().parseFromString(contenidoSVG, "image/svg+xml");
-        const svgElem = docSVG.documentElement;
-
-        if (svgElem.querySelector("parsererror")) {
-            $(this.contenedor).append($("<p>").text("Error al procesar el archivo SVG."));
-            return;
-        }
-
-        this._anadirEtiquetasHitos(svgElem);
-        $(this.contenedor).empty().append(svgElem);
-    }
-
-    _anadirEtiquetasHitos(svgElem) {
-        const ancho = parseFloat(svgElem.getAttribute("width")  || svgElem.viewBox?.baseVal?.width  || 800);
-        const alto  = parseFloat(svgElem.getAttribute("height") || svgElem.viewBox?.baseVal?.height || 300);
-        const n     = this.hitos.length;
-        if (n === 0) return;
-
-        const ns = "http://www.w3.org/2000/svg";
-
-        this.hitos.forEach((hito, i) => {
-            const x = Math.round((ancho / (n + 1)) * (i + 1));
-            const y = Math.round(alto * 0.15);
-
-            const linea = document.createElementNS(ns, "line");
-            linea.setAttribute("x1", x);
-            linea.setAttribute("y1", y + 5);
-            linea.setAttribute("x2", x);
-            linea.setAttribute("y2", alto * 0.8);
-            linea.setAttribute("stroke", "#9e9e9e");
-            linea.setAttribute("stroke-width", "1");
-            linea.setAttribute("stroke-dasharray", "4 3");
-
-            const texto = document.createElementNS(ns, "text");
-            texto.setAttribute("x", x);
-            texto.setAttribute("y", y);
-            texto.setAttribute("font-size", "11");
-            texto.setAttribute("fill", "#1a237e");
-            texto.setAttribute("text-anchor", "middle");
-            if (i % 2 !== 0) {
-                texto.setAttribute("transform", `rotate(-90, ${x}, ${y})`);
-            }
-            texto.textContent = hito.nombre;
-
-            svgElem.appendChild(linea);
-            svgElem.appendChild(texto);
         });
     }
 }

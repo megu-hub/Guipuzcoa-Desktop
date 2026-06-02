@@ -4,16 +4,12 @@
 import xml.etree.ElementTree as ET
 import os
 
-# ── Configuración ─────────────────────────────────────────────────────────────
 XML_FILE   = "rutasEsquema.xml"
 OUTPUT_DIR = "."
 
 
 class Svg:
-    """Clase para generar archivos SVG simples con polylines y texto."""
-
     def __init__(self, width="800", height="600"):
-        """Crea el elemento raíz con espacio de nombres y versión."""
         self.raiz = ET.Element('svg',
                                xmlns="http://www.w3.org/2000/svg",
                                version="2.0",
@@ -21,7 +17,6 @@ class Svg:
                                height=height)
 
     def addPolyline(self, points, stroke, strokeWidth, fill):
-        """Añade un elemento <polyline>."""
         ET.SubElement(self.raiz, 'polyline',
                       points=points,
                       stroke=stroke,
@@ -29,7 +24,6 @@ class Svg:
                       fill=fill)
 
     def addText(self, texto, x, y, fontFamily, fontSize, style):
-        """Añade un elemento <text>."""
         text_elem = ET.SubElement(self.raiz, 'text',
                                   x=x,
                                   y=y,
@@ -39,14 +33,12 @@ class Svg:
         text_elem.text = texto
 
     def addLine(self, x1, y1, x2, y2, stroke, strokeWidth):
-        """Añade un elemento <line>."""
         ET.SubElement(self.raiz, 'line',
                       x1=x1, y1=y1, x2=x2, y2=y2,
                       stroke=stroke,
                       **{'stroke-width': strokeWidth})
 
     def escribir(self, nombreArchivoSVG):
-        """Escribe el archivo SVG con declaración XML y codificación UTF-8."""
         arbol = ET.ElementTree(self.raiz)
         ET.indent(arbol)
         arbol.write(nombreArchivoSVG,
@@ -55,19 +47,8 @@ class Svg:
 
 
 def leerRutaXML(ruta_elem):
-    """
-    Lee los puntos de altimetría de un elemento <ruta>.
-
-    Estrategia:
-      1. Punto de inicio desde <coordenadasInicio>.
-      2. Hitos con su <coordenadas/altitud> y <distanciaDesdeAnterior>.
-
-    Devuelve lista de dicts: {'nombre', 'alt', 'dist'} donde 'dist' es
-    la distancia desde el punto anterior en metros.
-    """
     datos_puntos = []
 
-    # ── Punto de inicio ───────────────────────────────────────────────────────
     ci = ruta_elem.find('coordenadasInicio')
     if ci is not None:
         datos_puntos.append({
@@ -76,7 +57,6 @@ def leerRutaXML(ruta_elem):
             'dist':   0.0
         })
 
-    # ── Hitos ─────────────────────────────────────────────────────────────────
     for hito in ruta_elem.findall('hitos/hito'):
         alt_text = hito.findtext('coordenadas/altitud', '0')
         alt = float(alt_text.strip())
@@ -101,16 +81,13 @@ def leerRutaXML(ruta_elem):
     return datos_puntos
 
 
-def generarAltimetria(datos_puntos, nombreArchivo, titulo):
-    """Genera un SVG con el perfil altimétrico de una ruta."""
-
+def generarAltimetria(datos_puntos, nombreArchivo, titulo, hitos=None):
     nuevoSVG = Svg()
 
     ancho_svg = 800
     alto_svg  = 600
     margen    = 100
 
-    # ── Rangos de altitud ─────────────────────────────────────────────────────
     altitudes = [p['alt'] for p in datos_puntos]
     min_alt   = min(altitudes)
     max_alt   = max(altitudes)
@@ -118,10 +95,9 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
 
     padding_alt = rango_alt * 0.10
     alt_lo  = min_alt - padding_alt
-    alt_hi  = max_alt + padding_alt          # noqa: F841  (usado implícitamente)
+    alt_hi  = max_alt + padding_alt
     rango_ext = (alt_hi - alt_lo) if (alt_hi - alt_lo) > 0 else 1
 
-    # ── Distancias acumuladas ─────────────────────────────────────────────────
     distancias_acum = [0.0]
     for i in range(1, len(datos_puntos)):
         distancias_acum.append(distancias_acum[-1] + datos_puntos[i]['dist'])
@@ -131,7 +107,6 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
     ancho_grafico = ancho_svg - 2 * margen
     alto_grafico  = alto_svg  - 2 * margen
 
-    # ── Coordenadas en píxeles ────────────────────────────────────────────────
     points     = []
     coords_px  = []
     for i, punto in enumerate(datos_puntos):
@@ -140,7 +115,6 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
         points.append(f"{x:.1f},{y:.1f}")
         coords_px.append((x, y, punto['alt'], punto['nombre']))
 
-    # Polígono cerrado (relleno bajo la curva)
     y_base  = margen + alto_grafico
     x_last  = float(margen + ancho_grafico)
     x_first = float(margen)
@@ -148,17 +122,13 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
                                 f"{x_first:.1f},{y_base:.1f}"]
     points_str = " ".join(points_cerrados)
 
-    # ── Ejes ──────────────────────────────────────────────────────────────────
-    # Eje Y (altitud)
     nuevoSVG.addLine(str(margen), str(margen),
                      str(margen), str(alto_svg - margen),
                      'black', '2')
-    # Eje X (distancia)
     nuevoSVG.addLine(str(margen), str(alto_svg - margen),
                      str(ancho_svg - margen), str(alto_svg - margen),
                      'black', '2')
 
-    # ── Etiquetas de altitud (eje Y) ──────────────────────────────────────────
     nuevoSVG.addText(f"{max_alt:.0f}m",
                      str(margen - 60), str(margen + 5),
                      'Arial', '14', 'fill:black')
@@ -166,7 +136,6 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
                      str(margen - 60), str(alto_svg - margen + 5),
                      'Arial', '14', 'fill:black')
 
-    # ── Etiqueta distancia total (eje X) ──────────────────────────────────────
     usa_km    = distancia_total >= 2000
     dist_label = (f"{distancia_total/1000:.1f} km"
                   if usa_km else f"{distancia_total:.0f} m")
@@ -174,15 +143,12 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
                      str(ancho_svg / 2 - 80), str(alto_svg - margen + 40),
                      'Arial', '16', 'fill:black')
 
-    # ── Título ────────────────────────────────────────────────────────────────
     nuevoSVG.addText(titulo,
                      str(ancho_svg / 2 - 150), str(margen - 20),
                      'Arial', '14', 'fill:black;font-weight:bold')
 
-    # ── Perfil altimétrico ────────────────────────────────────────────────────
     nuevoSVG.addPolyline(points_str, 'blue', '4', 'lightblue')
 
-    # ── Marcadores en puntos más altos ────────────────────────────────────────
     umbral = max_alt - 5
     for (x, y, alt, nombre) in coords_px:
         if alt >= umbral:
@@ -192,6 +158,31 @@ def generarAltimetria(datos_puntos, nombreArchivo, titulo):
             nuevoSVG.addText(f"{alt:.0f}m",
                              f"{x - 18:.1f}", f"{y - 22:.1f}",
                              'Arial', '12', 'fill:black;font-weight:bold')
+
+    if hitos:
+        n = len(hitos)
+        margen_superior = int(alto_grafico * 0.20)
+
+        for i, hito in enumerate(hitos):
+            x = margen + (ancho_grafico / (n + 1)) * (i + 1)
+
+            nuevoSVG.addLine(
+                f"{x:.1f}", str(margen - margen_superior),
+                f"{x:.1f}", str(margen + alto_grafico),
+                "#9e9e9e", "1"
+            )
+            ultimo = list(nuevoSVG.raiz)[-1]
+            ultimo.set("stroke-dasharray", "4 3")
+
+            text_elem = ET.SubElement(nuevoSVG.raiz, "text",
+                                      x=f"{x:.1f}",
+                                      y=str(margen - margen_superior + 4),
+                                      **{"font-family": "Arial",
+                                         "font-size":   str(int(ancho_svg * 0.012)),
+                                         "fill":        "#1a237e",
+                                         "text-anchor": "end",
+                                         "transform":   f"rotate(-90,{x:.1f},{margen - margen_superior + 4})"})
+            text_elem.text = hito["nombre"]
 
     nuevoSVG.escribir(nombreArchivo)
     print(f"  Creado: {nombreArchivo}")
@@ -223,8 +214,14 @@ def main():
         print(f"  [{ruta_id}] {titulo}")
         print(f"    Puntos leídos: {len(datos)}")
 
+        hitos_para_svg = []
+        for hito in ruta.findall("hitos/hito"):
+            nombre = hito.findtext("nombre", "").strip()
+            if nombre:
+                hitos_para_svg.append({"nombre": nombre})
+
         salida = os.path.join(OUTPUT_DIR, f"{ruta_id}_altimetria.svg")
-        generarAltimetria(datos, salida, titulo)
+        generarAltimetria(datos, salida, titulo, hitos=hitos_para_svg)
 
     print("\nProceso completado.")
 
