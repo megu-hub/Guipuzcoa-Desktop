@@ -351,7 +351,7 @@ $(document).ready(() => {
 
     $.ajax({
         type:     "GET",
-        url:      "xml/rutasEsquema.xml",
+        url:      "xml/rutas.xml",
         dataType: "text",
         success: (texto) => {
             try {

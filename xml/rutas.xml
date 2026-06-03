@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE rutas SYSTEM "rutas.dtd">
-<rutas provincia="Gipuzkoa" pais="España" region="País Vasco">
-
-  <!-- ==================== RUTA 1 ==================== -->
+<rutas provincia="Gipuzkoa" pais="España" region="País Vasco" xmlns="http://www.uniovi.es" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.uniovi.es rutas.xsd">
   <ruta id="R001">
     <nombre>Ruta de la Costa Vasca: De Getaria a Zumaia</nombre>
     <tipo>Paisajística</tipo>
@@ -39,12 +36,9 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista panorámica del puerto de Getaria con barcos pesqueros">../multimedia/R001/H001-01_puerto_panoramica.jpg</foto>
-          <foto alt="Isla de San Antón (el Ratón) vista desde el puerto de Getaria">../multimedia/R001/H001-01_isla_raton.jpg</foto>
+          <foto alt="Vista panorámica del puerto de Getaria con barcos pesqueros">multimedia/H001-01_puerto_panoramica.jpg</foto>
+          <foto alt="Isla de San Antón (el Ratón) vista desde el puerto de Getaria">multimedia/H001-01_isla_raton.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo del amanecer en el puerto de Getaria con actividad pesquera">../multimedia/R001/H001-01_puerto_amanecer.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H001-02">
@@ -57,7 +51,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">250</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">../multimedia/R001/H001-02_museo_fachada.jpg</foto>
+          <foto alt="Fachada exterior del Museo Balenciaga con su volumen de cristal contemporáneo">multimedia/H001-02_museo_fachada.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -71,7 +65,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.8</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">../multimedia/R001/H001-03_malkorbe_aerea.jpg</foto>
+          <foto alt="Vista aérea de la playa virgen de Malkorbe rodeada de acantilados">multimedia/H001-03_malkorbe_aerea.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -85,7 +79,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">2.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">../multimedia/R001/H001-04_flysch_estratos.jpg</foto>
+          <foto alt="Estratos verticales del flysch de Zumaia mostrando millones de años de historia geológica">multimedia/H001-04_flysch_estratos.jpg</foto>
           </galeriaFotos>
       </hito>
 
@@ -99,11 +93,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">800</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">../multimedia/R001/H001-05_itzurun_playa.jpg</foto>
+          <foto alt="Playa de Itzurun con los impresionantes acantilados de flysch al fondo">multimedia/H001-05_itzurun_playa.jpg</foto>
         </galeriaFotos>
-        <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la playa de Itzurun y los acantilados de flysch">../multimedia/R001/H001-05_itzurun_drone.mp4</video>
-        </galeriaVideos>
       </hito>
 
       <hito id="H001-06">
@@ -116,8 +107,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">500</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Exterior del Centro de Interpretación Algorri junto al puerto de Zumaia">../multimedia/R001/H001-06_algorri_exterior.jpg</foto>
-          <foto alt="Sala de exposición interactiva del Centro Algorri sobre geología del flysch">../multimedia/R001/H001-06_algorri_interior.jpg</foto>
+          <foto alt="Exterior del Centro de Interpretación Algorri junto al puerto de Zumaia">multimedia/H001-06_algorri_exterior.jpg</foto>
+          <foto alt="Sala de exposición interactiva del Centro Algorri sobre geología del flysch">multimedia/H001-06_algorri_interior.jpg</foto>
         </galeriaFotos>
       </hito>
     </hitos>
@@ -193,7 +184,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">../multimedia/R002/H002-01_plaza_panoramica.jpg</foto>
+          <foto alt="Vista panorámica de la Plaza de la Constitución de San Sebastián con sus pórticos">multimedia/H002-01_plaza_panoramica.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -207,8 +198,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">150</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Fachada barroca churrigueresca de la Basílica de Santa María del Coro en Donostia">../multimedia/R002/H002-02_basilica_fachada.jpg</foto>
-          <foto alt="Interior y altar mayor de la Basílica de Santa María del Coro">../multimedia/R002/H002-02_basilica_interior.jpg</foto>
+          <foto alt="Fachada barroca churrigueresca de la Basílica de Santa María del Coro en Donostia">multimedia/H002-02_basilica_fachada.jpg</foto>
+          <foto alt="Interior y altar mayor de la Basílica de Santa María del Coro">multimedia/H002-02_basilica_interior.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -222,7 +213,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">200</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">../multimedia/R002/H002-03_calle31_bares.jpg</foto>
+          <foto alt="Bares de pintxos alineados en la Calle 31 de Agosto de San Sebastián">multimedia/H002-03_calle31_bares.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -236,7 +227,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">350</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">../multimedia/R002/H002-04_bretxa_idiazabal.jpg</foto>
+          <foto alt="Ruedas de queso idiazabal de pastor en el Mercado de La Bretxa">multimedia/H002-04_bretxa_idiazabal.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -250,8 +241,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">700</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">../multimedia/R002/H002-05_urgull_castillo.jpg</foto>
-          <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">../multimedia/R002/H002-05_urgull_bahia.jpg</foto>
+          <foto alt="Vista del Castillo de La Mota en la cima del Monte Urgull de San Sebastián">multimedia/H002-05_urgull_castillo.jpg</foto>
+          <foto alt="Panorámica de la Bahía de La Concha desde las murallas del Monte Urgull">multimedia/H002-05_urgull_bahia.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -265,7 +256,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="m">900</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">../multimedia/R002/H002-06_concha_aerea.jpg</foto>
+          <foto alt="Vista aérea de la Bahía de La Concha de San Sebastián con la isla de Santa Clara">multimedia/H002-06_concha_aerea.jpg</foto>
         </galeriaFotos>
       </hito>
     </hitos>
@@ -340,7 +331,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">0</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">../multimedia/R003/H003-01_behobia_puente.jpg</foto>
+          <foto alt="Puente Internacional de Behobia sobre el río Bidasoa, inicio del Camino del Norte">multimedia/H003-01_behobia_puente.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -354,7 +345,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">4.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">../multimedia/R003/H003-02_hondarribia_murallas.jpg</foto>
+          <foto alt="Murallas medievales del siglo XV de Hondarribia bien conservadas">multimedia/H003-02_hondarribia_murallas.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -368,10 +359,10 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">8.2</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_panoramica.jpg</foto>
+          <foto alt="Panorámica del Mar Cantábrico desde la cima del Monte Jaizkibel">multimedia/H003-03_jaizkibel_panoramica.jpg</foto>
         </galeriaFotos>
         <galeriaVideos>
-          <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">../multimedia/R003/H003-03_jaizkibel_drone.mp4</video>
+          <video alt="Vídeo de dron sobrevolando la costa del Monte Jaizkibel">multimedia/H003-03_jaizkibel_drone.mp4</video>
         </galeriaVideos>
       </hito>
 
@@ -385,7 +376,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">12.3</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">../multimedia/R003/H003-04_pasaia_casas.jpg</foto>
+          <foto alt="Casas de colores de Pasajes de San Juan reflejadas en las aguas de la ría">multimedia/H003-04_pasaia_casas.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -399,8 +390,8 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">28.5</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">../multimedia/R003/H003-05_zarautz_playa.jpg</foto>
-          <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">../multimedia/R003/H003-05_zarautz_torre_luzea.jpg</foto>
+          <foto alt="Vista aérea de la playa de Zarautz, la más larga de Gipuzkoa, con surfistas">multimedia/H003-05_zarautz_playa.jpg</foto>
+          <foto alt="Torre Luzea, edificio renacentista emblema del casco histórico de Zarautz">multimedia/H003-05_zarautz_torre_luzea.jpg</foto>
         </galeriaFotos>
       </hito>
 
@@ -414,7 +405,7 @@
         </coordenadas>
         <distanciaDesdeAnterior unidades="km">22.1</distanciaDesdeAnterior>
         <galeriaFotos>
-          <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">../multimedia/R003/H003-06_deba_portada.jpg</foto>
+          <foto alt="Portada gótica esculpida de la Colegiata de Santa María de Deba">multimedia/H003-06_deba_portada.jpg</foto>
         </galeriaFotos>
       </hito>
     </hitos>
