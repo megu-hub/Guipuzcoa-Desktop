@@ -6,6 +6,8 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 require_once 'Database.php';
 $db = new Database();
+$db->cargarTiposDesdeCSV(__DIR__ . '/tipos_recurso.csv');
+$db->cargarCategoriasDesdeCSV(__DIR__ . '/categorias_precio.csv');
 $db->cargarRecursosDesdeCSV(__DIR__ . '/recursos.csv');
 $recursos = $db->obtenerRecursosDisponibles();
 ?>
@@ -45,6 +47,7 @@ $recursos = $db->obtenerRecursosDisponibles();
                     <tr>
                         <th>Nombre</th>
                         <th>Tipo</th>
+                        <th>Categoría</th>
                         <th>Descripción</th>
                         <th>Plazas libres</th>
                         <th>Inicio</th>
@@ -58,6 +61,7 @@ $recursos = $db->obtenerRecursosDisponibles();
                     <tr>
                         <td><?= htmlspecialchars($r['nombre']) ?></td>
                         <td><?= htmlspecialchars($r['tipo']) ?></td>
+                        <td><?= htmlspecialchars($r['categoria_precio']) ?></td>
                         <td><?= htmlspecialchars($r['descripcion']) ?></td>
                         <td><?= $r['plazas_libres'] ?></td>
                         <td><?= $r['fecha_inicio'] ?></td>

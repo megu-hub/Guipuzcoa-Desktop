@@ -1,0 +1,4 @@
+nombre,precio_min,precio_max
+económico,0.00,15.00
+estándar,15.01,60.00
+premium,60.01,999.99
