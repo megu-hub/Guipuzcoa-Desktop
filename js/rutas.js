@@ -317,7 +317,6 @@ class CargadorKML {
             this.mapa.resize();
 
             const marcadorElem = document.createElement('div');
-            marcadorElem.style.cssText = 'width:14px;height:14px;background:#e53935;border:2px solid #fff;border-radius:50%';
 
             new mapboxgl.Marker(marcadorElem)
                 .setLngLat([coordOrigen.longitud, coordOrigen.latitud])
