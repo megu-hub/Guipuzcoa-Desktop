@@ -10,12 +10,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         trim($_POST['nombre']),
         trim($_POST['apellidos']),
         trim($_POST['email']),
-        $_POST['password']
+        password_hash($_POST['password'], PASSWORD_DEFAULT)
     );
     $usuario = $db->obtenerUsuarioPorEmail(trim($_POST['email']));
     $_SESSION['usuario_id']     = $usuario['id'];
     $_SESSION['usuario_nombre'] = $usuario['nombre'];
-    header('Location: reservas.php');
+    header('Location: ../reservas.php');
     exit;
 }
 ?>
@@ -25,25 +25,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8" />
     <title>Guipuzcoa-Reservas — Registro</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="multimedia/icono.ico"/>
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="../multimedia/icono.ico"/>
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
 </head>
 <body>
     <header>
-        <h1><a href="index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
+        <h1><a href="../index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="gastronomia.html">Gastronomía</a>
-            <a href="rutas.html">Rutas</a>
-            <a href="meteorologia.html">Meteorología</a>
-            <a href="juego.html">Juego</a>
-            <a href="reservas.php" class="active">Reservas</a>
-            <a href="ayuda.html">Ayuda</a>
+            <a href="../index.html">Inicio</a>
+            <a href="../gastronomia.html">Gastronomía</a>
+            <a href="../rutas.html">Rutas</a>
+            <a href="../meteorologia.html">Meteorología</a>
+            <a href="../juego.html">Juego</a>
+            <a href="../reservas.php" class="active">Reservas</a>
+            <a href="../ayuda.html">Ayuda</a>
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="reservas.php">Reservas</a> >> <strong>Registro</strong></p>
+    <p>Estás en: <a href="../index.html">Inicio</a> >> <a href="../reservas.php">Reservas</a> >> <strong>Registro</strong></p>
 
     <main>
         <h2>Registro de usuario</h2>

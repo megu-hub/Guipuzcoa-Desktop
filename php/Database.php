@@ -115,7 +115,10 @@ class Database {
 
         fgetcsv($handle, 1000, ',');
 
-        $this->db->query("TRUNCATE TABLE recursos");
+        $this->db->query('SET FOREIGN_KEY_CHECKS = 0');
+        $this->db->query('TRUNCATE TABLE reservas');
+        $this->db->query('TRUNCATE TABLE recursos');
+        $this->db->query('SET FOREIGN_KEY_CHECKS = 1');
 
         $stmt = $this->db->prepare(
             "INSERT INTO recursos (nombre, id_tipo, id_categoria_precio, descripcion, plazas, fecha_inicio, fecha_fin, precio)
@@ -216,6 +219,11 @@ class Database {
         $stmt->bind_param("ii", $id_reserva, $id_usuario);
         if (!$stmt->execute()) die("Error anularReserva: " . $stmt->error);
         $stmt->close();
+    }
+
+    public function tablaVacia($tabla) {
+        $result = $this->db->query("SELECT COUNT(*) as total FROM `$tabla`");
+        return (int)$result->fetch_assoc()['total'] === 0;
     }
 
     public function __destruct() {

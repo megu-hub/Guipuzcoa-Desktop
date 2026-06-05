@@ -6,9 +6,11 @@ if (!isset($_SESSION['usuario_id'])) {
 }
 require_once 'Database.php';
 $db = new Database();
-$db->cargarTiposDesdeCSV(__DIR__ . '/tipos_recurso.csv');
-$db->cargarCategoriasDesdeCSV(__DIR__ . '/categorias_precio.csv');
-$db->cargarRecursosDesdeCSV(__DIR__ . '/recursos.csv');
+if ($db->tablaVacia('recursos')) {
+    $db->cargarTiposDesdeCSV(__DIR__ . '/tipos_recurso.csv');
+    $db->cargarCategoriasDesdeCSV(__DIR__ . '/categorias_precio.csv');
+    $db->cargarRecursosDesdeCSV(__DIR__ . '/recursos.csv');
+}
 $recursos = $db->obtenerRecursosDisponibles();
 ?>
 <!DOCTYPE HTML>
@@ -17,25 +19,25 @@ $recursos = $db->obtenerRecursosDisponibles();
     <meta charset="UTF-8" />
     <title>Guipuzcoa-Reservas — Recursos disponibles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="multimedia/icono.ico"/>
-    <link rel="stylesheet" type="text/css" href="estilo/estilo.css" />
-    <link rel="stylesheet" type="text/css" href="estilo/layout.css" />
+    <link rel="icon" href="../multimedia/icono.ico"/>
+    <link rel="stylesheet" type="text/css" href="../estilo/estilo.css" />
+    <link rel="stylesheet" type="text/css" href="../estilo/layout.css" />
 </head>
 <body>
     <header>
-        <h1><a href="index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
+        <h1><a href="../index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
         <nav>
-            <a href="index.html">Inicio</a>
-            <a href="gastronomia.html">Gastronomía</a>
-            <a href="rutas.html">Rutas</a>
-            <a href="meteorologia.html">Meteorología</a>
-            <a href="juego.html">Juego</a>
-            <a href="reservas.php" class="active">Reservas</a>
-            <a href="ayuda.html">Ayuda</a>
+            <a href="../index.html">Inicio</a>
+            <a href="../gastronomia.html">Gastronomía</a>
+            <a href="../rutas.html">Rutas</a>
+            <a href="../meteorologia.html">Meteorología</a>
+            <a href="../juego.html">Juego</a>
+            <a href="../reservas.php" class="active">Reservas</a>
+            <a href="../ayuda.html">Ayuda</a>
         </nav>
     </header>
 
-    <p>Estás en: <a href="index.html">Inicio</a> >> <a href="reservas.php">Reservas</a> >> <strong>Recursos disponibles</strong></p>
+    <p>Estás en: <a href="../index.html">Inicio</a> >> <a href="../reservas.php">Reservas</a> >> <strong>Recursos disponibles</strong></p>
 
     <main>
         <h2>Recursos turísticos disponibles</h2>
