@@ -44,7 +44,7 @@ figure img {
     display: block;
 }
 
-@media (min-width: 399px) and (max-width: 799px) {
+@media (min-width: 300px) and (max-width: 799px) {
     /* Especifidad 001 */
     nav{
         flex-direction: column;
