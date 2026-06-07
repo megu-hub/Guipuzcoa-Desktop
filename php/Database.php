@@ -5,7 +5,7 @@ class Database {
     private $db;
 
     public function __construct() {
-        $this->db = new mysqli('localhost', 'DBUSER2026', 'DBPSWD2026', 'UO299971_DB');
+        $this->db = new mysqli('localhost', 'DBUSER2026', 'DBPWD2026', 'UO299971_DB');
 
         if ($this->db->connect_error) {
             die("Conexión fallida: " . $this->db->connect_error);

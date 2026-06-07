@@ -32,6 +32,11 @@ li {
     margin: 0.5em 0;
 } 
 
+figure img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
 
 @media (min-width: 320px) and (max-width: 799px) {
     /* Especifidad 001 */
@@ -66,8 +71,8 @@ li {
 
     /* Especifidad 003*/
     article h2 + img{
-        width: 100%;
-        height: auto;
+        width: auto;
+        height: 100%;
         justify-content: center;
     }
 
