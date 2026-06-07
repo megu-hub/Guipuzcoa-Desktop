@@ -1,15 +1,15 @@
 class Juego {
   #preguntas = [
-    { q: "¿Cuál es el planeta más grande del sistema solar?",      ops: ["Tierra","Saturno","Júpiter","Urano","Neptuno"],              r: 2 },
-    { q: "¿En qué año llegó el hombre a la Luna?",                 ops: ["1965","1967","1969","1971","1973"],                          r: 2 },
-    { q: "¿Cuántos huesos tiene el cuerpo humano adulto?",         ops: ["186","206","226","246","256"],                               r: 1 },
-    { q: "¿Cuál es el río más largo del mundo?",                   ops: ["Amazonas","Yangtsé","Misisipi","Nilo","Danubio"],             r: 3 },
-    { q: "¿Qué elemento químico tiene el símbolo Au?",             ops: ["Plata","Aluminio","Oro","Arsénico","Argón"],                  r: 2 },
-    { q: "¿Quién pintó La Gioconda?",                              ops: ["Miguel Ángel","Rafael","Botticelli","Caravaggio","Leonardo"], r: 4 },
-    { q: "¿Cuántos lados tiene un heptágono?",                     ops: ["5","6","7","8","9"],                                         r: 2 },
-    { q: "¿Cuál es el país más grande del mundo por superficie?",  ops: ["China","Canadá","EE.UU.","Rusia","Brasil"],                  r: 3 },
-    { q: "¿En qué año se fundó la ONU?",                           ops: ["1939","1942","1945","1948","1950"],                          r: 2 },
-    { q: "¿Cuántos cromosomas tiene una célula humana normal?",    ops: ["23","36","46","48","52"],                                    r: 2 }
+      { q: "¿Cuántas rutas de Guipúzcoa se describen en el rutas?", ops: ["2", "3", "4", "5"], r: 1 },
+      { q: "¿Cuántas estrellas Michelin tiene el restaurante Arzak (San Sebastián)?", ops: ["1 estrella", "2 estrellas", "3 estrellas", "4 estrellas"], r: 2 },
+      { q: "¿Cuál es el medio de transporte de todas las rutas?", ops: ["En bicicleta", "A pie", "En coche", "En tren"], r: 1 },
+      { q: "¿Cuántos hitos tiene la Ruta de la Costa Vasca (Getaria a Zumaia)?", ops: ["4", "5", "6", "7"], r: 2 },
+      { q: "¿Cuántos restaurantes con estrella Michelin aparecen en la tabla de gastronomía?", ops: ["3", "4", "5", "6"], r: 1 },
+      { q: "¿Cuántos términos aparecen en el glosario de gastronomía vasca?", ops: ["2", "3", "4", "5"], r: 2 },
+      { q: "¿Cuántos días dura la Ruta del Camino de Santiago del Norte por Gipuzkoa?", ops: ["1 día", "2 días", "3 días", "5 días"], r: 2 },
+      { q: "¿Cuántos campos horarios aparecen en meteorología?", ops: ["5", "6", "7", "8"], r: 3 },
+      { q: "¿Cuál es la puntuación de recomendación de la Ruta de Pintxos por la Parte Vieja de Donostia?", ops: ["7", "8", "9", "10"], r: 3 },
+      { q: "¿Cuántos hitos tiene la Ruta del Camino de Santiago del Norte por Gipuzkoa?", ops: ["4", "5", "6", "8"], r: 2 }
   ];
 
   #actual = 0;
