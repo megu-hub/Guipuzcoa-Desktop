@@ -39,7 +39,7 @@ figure {
 
 /* Especifidad 002 */
 figure img {
-    width: 50%;
+    width: 100%;
     height: auto;
     display: block;
 }
@@ -87,10 +87,12 @@ figure img {
         height: 20rem;
     }
 
+    
     /* Especifidad 002 */
     figure img {
-        width: 50%;
+        width: 30%;
         height: auto;
+        display: block;
     }
 
 }
