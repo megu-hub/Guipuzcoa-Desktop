@@ -32,14 +32,10 @@ li {
     margin: 0.5em 0;
 } 
 
-figure {
-    width: 100%;
-}
-
 
 /* Especifidad 002 */
 figure img {
-    width: 30%;
+    width: 100%;
     height: auto;
     display: block;
 }
@@ -87,4 +83,8 @@ figure img {
         height: 20rem;
     }
 
+    figure img {
+        width: 100%;
+        height: auto;
+    }
 }
