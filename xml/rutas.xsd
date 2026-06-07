@@ -4,13 +4,6 @@
            targetNamespace="http://www.uniovi.es"
            xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
-  <xs:annotation>
-    <xs:documentation>
-      Esquema XSD para la descripción de rutas turísticas.
-      Incluye hitos, coordenadas, galería multimedia, referencias y altimetría/planimetría.
-    </xs:documentation>
-  </xs:annotation>
-
   <xs:element name="rutas">
     <xs:complexType>
       <xs:sequence>
@@ -57,9 +50,6 @@
   <xs:element name="direccionInicio"  type="xs:string" />
 
   <xs:element name="tipo">
-    <xs:annotation>
-      <xs:documentation>Tipo de ruta turística. Debe ser uno de los valores enumerados.</xs:documentation>
-    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:enumeration value="Arquitectura y monumentos" />
@@ -77,9 +67,6 @@
   </xs:element>
 
   <xs:element name="medioTransporte">
-    <xs:annotation>
-      <xs:documentation>Medio de transporte principal utilizado en la ruta.</xs:documentation>
-    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:enumeration value="A pie" />
@@ -94,9 +81,6 @@
   </xs:element>
 
   <xs:element name="recomendacion">
-    <xs:annotation>
-      <xs:documentation>Puntuación de recomendación de la ruta, de 0 a 10.</xs:documentation>
-    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:integer">
         <xs:minInclusive value="0" />
@@ -106,9 +90,6 @@
   </xs:element>
 
   <xs:element name="planimetria">
-    <xs:annotation>
-      <xs:documentation>Ruta al archivo KML de planimetría generado con Python (p.ej. planimetria.kml).</xs:documentation>
-    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:pattern value=".+\.kml" />
@@ -117,9 +98,6 @@
   </xs:element>
 
   <xs:element name="altimetria">
-    <xs:annotation>
-      <xs:documentation>Ruta al archivo SVG de altimetría generado con Python (p.ej. altimetria.svg).</xs:documentation>
-    </xs:annotation>
     <xs:simpleType>
       <xs:restriction base="xs:string">
         <xs:pattern value=".+\.svg" />
@@ -163,9 +141,6 @@
 
 
   <xs:simpleType name="tipoLongitud">
-    <xs:annotation>
-      <xs:documentation>Coordenada de longitud geográfica en grados decimales (-180 a 180).</xs:documentation>
-    </xs:annotation>
     <xs:restriction base="xs:decimal">
       <xs:minInclusive value="-180.0" />
       <xs:maxInclusive value="180.0" />
@@ -173,9 +148,6 @@
   </xs:simpleType>
 
   <xs:simpleType name="tipoLatitud">
-    <xs:annotation>
-      <xs:documentation>Coordenada de latitud geográfica en grados decimales (-90 a 90).</xs:documentation>
-    </xs:annotation>
     <xs:restriction base="xs:decimal">
       <xs:minInclusive value="-90.0" />
       <xs:maxInclusive value="90.0" />
@@ -183,9 +155,6 @@
   </xs:simpleType>
 
   <xs:simpleType name="tipoAltitud">
-    <xs:annotation>
-      <xs:documentation>Altitud en metros. Rango: -9999 m a 9999 m.</xs:documentation>
-    </xs:annotation>
     <xs:restriction base="xs:decimal">
       <xs:minInclusive value="-9999" />
       <xs:maxInclusive value="9999" />
@@ -217,9 +186,6 @@
   </xs:element>
 
   <xs:element name="referencias">
-    <xs:annotation>
-      <xs:documentation>Lista de referencias bibliográficas o URLs. Mínimo 3.</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="3" maxOccurs="unbounded" ref="referencia" />
@@ -238,9 +204,6 @@
   </xs:element>
 
   <xs:element name="hitos">
-    <xs:annotation>
-      <xs:documentation>Conjunto de hitos turísticos de la ruta. Mínimo 5.</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="5" maxOccurs="unbounded" ref="hito" />
@@ -263,9 +226,7 @@
   </xs:element>
 
   <xs:simpleType name="tipoDistancia">
-    <xs:annotation>
-      <xs:documentation>Distancia numérica no negativa entre hitos consecutivos.</xs:documentation>
-    </xs:annotation>
+
     <xs:restriction base="xs:decimal">
       <xs:minInclusive value="0" />
       <xs:maxInclusive value="9999" />
@@ -292,9 +253,6 @@
 
 
   <xs:element name="galeriaFotos">
-    <xs:annotation>
-      <xs:documentation>Galería de fotografías del hito. Mínimo 1, máximo 5.</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="1" maxOccurs="5" ref="foto" />
@@ -313,9 +271,6 @@
   </xs:element>
 
   <xs:element name="galeriaVideos">
-    <xs:annotation>
-      <xs:documentation>Galería de vídeos del hito (opcional). Si existe, contiene entre 1 y 3 vídeos.</xs:documentation>
-    </xs:annotation>
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="1" maxOccurs="3" ref="video" />
