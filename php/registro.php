@@ -33,13 +33,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header>
         <h1><a href="../index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
         <nav>
-            <a href="../index.html">Inicio</a>
-            <a href="../gastronomia.html">Gastronomía</a>
-            <a href="../rutas.html">Rutas</a>
-            <a href="../meteorologia.html">Meteorología</a>
-            <a href="../juego.html">Juego</a>
-            <a href="../reservas.php" class="active">Reservas</a>
-            <a href="../ayuda.html">Ayuda</a>
+            <a href="../index.html" title="Inicio">Inicio</a>
+            <a href="../gastronomia.html" title="Gastronomía de Guipuzcoa">Gastronomía</a>
+            <a href="../rutas.html" title="Rutas de Guipuzcoa">Rutas</a>
+            <a href="../meteorologia.html" title="Información de la meteorología">Meteorología</a>
+            <a href="../juego.html" title="Juego">Juego</a>
+            <a href="../reservas.php" title="Reservas en Guipuzcoa" class="active">Reservas</a>
+            <a href="../ayuda.html" title="Información de Ayuda">Ayuda</a>
         </nav>
     </header>
 

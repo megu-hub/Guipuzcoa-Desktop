@@ -26,15 +26,15 @@ $recursos = $db->obtenerRecursosDisponibles();
 <body>
     <header>
         <h1><a href="../index.html" title="Inicio">Guipuzcoa Desktop</a></h1>
-        <nav>
-            <a href="../index.html">Inicio</a>
-            <a href="../gastronomia.html">Gastronomía</a>
-            <a href="../rutas.html">Rutas</a>
-            <a href="../meteorologia.html">Meteorología</a>
-            <a href="../juego.html">Juego</a>
-            <a href="../reservas.php" class="active">Reservas</a>
-            <a href="../ayuda.html">Ayuda</a>
-        </nav>
+    <nav>
+        <a href="../index.html" title="Inicio">Inicio</a>
+        <a href="../gastronomia.html" title="Gastronomía de Guipuzcoa">Gastronomía</a>
+        <a href="../rutas.html" title="Rutas de Guipuzcoa">Rutas</a>
+        <a href="../meteorologia.html" title="Información de la meteorología">Meteorología</a>
+        <a href="../juego.html" title="Juego">Juego</a>
+        <a href="../reservas.php" title="Reservas en Guipuzcoa" class="active">Reservas</a>
+        <a href="../ayuda.html" title="Información de Ayuda">Ayuda</a>
+    </nav>
     </header>
 
     <p>Estás en: <a href="../index.html">Inicio</a> >> <a href="../reservas.php">Reservas</a> >> <strong>Recursos disponibles</strong></p>
@@ -47,15 +47,15 @@ $recursos = $db->obtenerRecursosDisponibles();
             <table>
                 <thead>
                     <tr>
-                        <th>Nombre</th>
-                        <th>Tipo</th>
-                        <th>Categoría</th>
-                        <th>Descripción</th>
-                        <th>Plazas libres</th>
-                        <th>Inicio</th>
-                        <th>Fin</th>
-                        <th>Precio</th>
-                        <th></th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Categoría</th>
+                        <th scope="col">Descripción</th>
+                        <th scope="col">Plazas libres</th>
+                        <th scope="col">Inicio</th>
+                        <th scope="col">Fin</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
