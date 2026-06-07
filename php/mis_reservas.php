@@ -83,6 +83,7 @@ $reservas = $db->obtenerReservasUsuario($_SESSION['usuario_id']);
             </table>
         <?php endif; ?>
         <p><a href="recursos.php">Ver recursos disponibles</a></p>
+        <p><a href="logout.php">Cerrar sesión</a></p>
     </main>
 </body>
 </html>

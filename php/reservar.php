@@ -79,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <p><input type="submit" value="Ver presupuesto"></p>
             </form>
         <?php endif; ?>
+        <p><a href="logout.php">Cerrar sesión</a></p>
     </main>
 </body>
 </html>

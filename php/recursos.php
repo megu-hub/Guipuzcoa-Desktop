@@ -76,6 +76,7 @@ $recursos = $db->obtenerRecursosDisponibles();
             </table>
         <?php endif; ?>
         <p><a href="mis_reservas.php">Ver mis reservas</a></p>
+        <p><a href="logout.php">Cerrar sesión</a></p>
     </main>
 </body>
 </html>
