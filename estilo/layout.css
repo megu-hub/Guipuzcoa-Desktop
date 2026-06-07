@@ -33,7 +33,9 @@ li {
 } 
 
 /* Especifidad 002 */
+/* Para romper los URLs, y no producir scroll horizontal*/
 li a {
+    overflow-wrap: break-word;
     word-break: break-all;
 }
 
