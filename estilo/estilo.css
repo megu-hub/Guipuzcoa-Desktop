@@ -10,47 +10,53 @@ body {
 /* Especifidad 001 */
 header {
     background-color: #0D2A52;
+    /* Hereda color de primer plano de body: #0D1B2E */
 }
 
 /* Especifidad 001 */
 h1 {
     color: #0D2A52;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 001 */
 h2 {
     font-weight: bold;
     color: #0D1B2E;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 001 */
-/* Hereda de body */
 h3 {
     color: #0D1B2E;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 001 */
 p {
     text-align: justify;
     color: #0D1B2E;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 001 */
 a {
     color: #0A3D7A;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 002 */
-/* Hereda de body */
 header + p {
     font-size: 0.8em;
     color: #1A3660;
+    /* Hereda background-color de body: #EEF3FB */
 }
 
 /* Especifidad 002 */
 nav > a {
     text-decoration-line: none;
     color: #EEF3FB;
+    /* Hereda background-color de header: #0D2A52 */
 }
 
 /* Especifidad 011 */
@@ -60,10 +66,35 @@ a.active {
     border-bottom: 0.125em solid #C8DEFF;
     padding-bottom: 0.125em;
     font-weight: bold;
+    /* Hereda background-color de header: #0D2A52 */
 }
 
 /* Especifidad 003 */
 header h1 a {
     color: #C8DEFF;
     text-decoration: none;
+    /* Hereda background-color de header: #0D2A52 */
+}
+
+/* Especifidad 001 */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    background-color: #EEF3FB; /* Hereda background-color de body: #EEF3FB */
+}
+
+/* Especifidad 002 */
+table th,
+table td {
+    border: 0.0625em solid #0D2A52;
+    padding: 0.5em 1em;
+    text-align: left;
+    color: #0D1B2E; /* Hereda background-color de body: #EEF3FB */
+}
+
+/* Especifidad 002 */
+table th {
+    background-color: #0D2A52;
+    color: #EEF3FB; /* Hereda background-color de table th: #0D2A52 */
+    font-weight: bold;
 }

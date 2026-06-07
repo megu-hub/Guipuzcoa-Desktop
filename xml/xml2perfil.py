@@ -18,7 +18,7 @@ class Svg:
         self._raiz   = ET.Element(
             'svg',
             xmlns="http://www.w3.org/2000/svg",
-            version="2.0",
+            version="1.1",
             width=str(width),
             height=str(height),
             viewBox=f"0 0 {width} {height}",

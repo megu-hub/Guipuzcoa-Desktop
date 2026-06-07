@@ -179,12 +179,12 @@ class ConstructorHTML {
             }
 
             if (hito.fotos.length > 0) {
-                const $fig = $("<figure>");
                 hito.fotos.forEach((foto) => {
+                    const $fig = $("<figure>");
                     $fig.append($("<img>").attr("src", foto.src).attr("alt", foto.alt));
                     $fig.append($("<figcaption>").text(foto.alt));
+                    $hitoSec.append($fig);
                 });
-                $hitoSec.append($fig);
             }
 
             if (hito.videos.length > 0) {
@@ -236,7 +236,18 @@ class ConstructorHTML {
             url:      svgUrl,
             dataType: "text",
             success: (contenido) => {
-                const docSVG  = new DOMParser().parseFromString(contenido, "image/svg+xml");
+                const contenidoUnico = contenido.replace(
+                    /\bid="([^"]+)"/g,
+                    (match, id) => `id="${ruta.id}_${id}"`
+                ).replace(
+                    /\burl\(#([^)]+)\)/g,
+                    (match, id) => `url(#${ruta.id}_${id})`
+                ).replace(
+                    /\bhref="#([^"]+)"/g,
+                    (match, id) => `href="#${ruta.id}_${id}"`
+                );
+
+                const docSVG  = new DOMParser().parseFromString(contenidoUnico, "image/svg+xml");
                 const svgElem = docSVG.documentElement;
                 if (!svgElem.querySelector("parsererror")) {
                     svgElem.setAttribute("width",  "100%");
@@ -249,8 +260,8 @@ class ConstructorHTML {
             }
         });
 
-        return $sec;
-    }
+    return $sec;
+}
 }
 
 class CargadorKML {
@@ -271,76 +282,137 @@ class CargadorKML {
         lector.readAsText(archivo);
     }
 
-    _procesarKML(contenidoKML) {
-        const xmlDoc = new DOMParser().parseFromString(contenidoKML, "text/xml");
+_procesarKML(contenidoKML) {
+    const xmlDoc = new DOMParser().parseFromString(contenidoKML, "text/xml");
 
-        let coordOrigen = this.coordInicio;
-        const puntoCoords = xmlDoc.querySelector("Placemark Point coordinates");
-        if (puntoCoords) {
-            const partes = puntoCoords.textContent.trim().split(",").map(Number);
+    let coordOrigen = this.coordInicio;
+    const marcadores = [];
+
+    // Recorrer todos los Placemark
+    xmlDoc.querySelectorAll("Placemark").forEach((pm) => {
+        const pointCoords = pm.querySelector("Point coordinates");
+        const nombre      = pm.querySelector("name");
+
+        if (pointCoords) {
+            const partes = pointCoords.textContent.trim().split(",").map(Number);
             if (!isNaN(partes[0]) && !isNaN(partes[1])) {
-                coordOrigen = { longitud: partes[0], latitud: partes[1] };
+                const punto = {
+                    longitud: partes[0],
+                    latitud:  partes[1],
+                    nombre:   nombre ? nombre.textContent.trim() : ""
+                };
+                marcadores.push(punto);
+
+                // El primero sirve como centro del mapa
+                if (marcadores.length === 1) {
+                    coordOrigen = punto;
+                }
             }
         }
+    });
 
-        let coordenadasLinea = [];
-        const lineaCoords = xmlDoc.querySelector("Placemark LineString coordinates");
-        if (lineaCoords) {
-            coordenadasLinea = lineaCoords.textContent.trim()
-                .split(/\s+/)
-                .filter(l => l.trim() !== "")
-                .map(l => {
-                    const p = l.split(",").map(Number);
-                    return [p[0], p[1]];
-                });
-        }
-
-        this._inicializarMapa(coordOrigen, coordenadasLinea);
+    // Línea del recorrido
+    let coordenadasLinea = [];
+    const lineaCoords = xmlDoc.querySelector("Placemark LineString coordinates");
+    if (lineaCoords) {
+        coordenadasLinea = lineaCoords.textContent.trim()
+            .split(/\s+/)
+            .filter(l => l.trim() !== "")
+            .map(l => {
+                const p = l.split(",").map(Number);
+                return [p[0], p[1]];
+            });
     }
 
-    _inicializarMapa(coordOrigen, coordenadasLinea) {
-        if (this.mapa) {
-            this.mapa.remove();
-            this.mapa = null;
+    this._inicializarMapa(coordOrigen, coordenadasLinea, marcadores);
+}
+
+_procesarKML(contenidoKML) {
+    const xmlDoc = new DOMParser().parseFromString(contenidoKML, "text/xml");
+
+    let coordOrigen = this.coordInicio;
+    const marcadores = [];
+
+    xmlDoc.querySelectorAll("Placemark").forEach((pm) => {
+        const pointCoords = pm.querySelector("Point coordinates");
+        const nombre = pm.querySelector("name");
+
+        if (pointCoords) {
+            const partes = pointCoords.textContent.trim().split(",").map(Number);
+            if (!isNaN(partes[0]) && !isNaN(partes[1])) {
+                const punto = {
+                    longitud: partes[0],
+                    latitud:  partes[1],
+                    nombre:   nombre ? nombre.textContent.trim() : ""
+                };
+                marcadores.push(punto);
+                if (marcadores.length === 1) {
+                    coordOrigen = punto;
+                }
+            }
         }
+    });
 
-        mapboxgl.accessToken = 'pk.eyJ1IjoibWVndXNldyIsImEiOiJjbWlmNmNhNDMwOXhmM2tzOXcxOWR4ejk3In0.pQD9ydhii7vFLSjupm9Hmg';
+    let coordenadasLinea = [];
+    const lineaCoords = xmlDoc.querySelector("Placemark LineString coordinates");
+    if (lineaCoords) {
+        coordenadasLinea = lineaCoords.textContent.trim()
+            .split(/\s+/)
+            .filter(l => l.trim() !== "")
+            .map(l => {
+                const p = l.split(",").map(Number);
+                return [p[0], p[1]];
+            });
+    }
 
-        this.mapa = new mapboxgl.Map({
-            container: this.contenedor,
-            style:     'mapbox://styles/mapbox/streets-v12',
-            center:    [coordOrigen.longitud, coordOrigen.latitud],
-            zoom:      12
-        });
+    this._inicializarMapa(coordOrigen, coordenadasLinea, marcadores);
+}
 
-        this.mapa.on('load', () => {
-            this.mapa.resize();
+_inicializarMapa(coordOrigen, coordenadasLinea, marcadores) {
+    if (this.mapa) {
+        this.mapa.remove();
+        this.mapa = null;
+    }
 
-            const marcadorElem = document.createElement('div');
+    mapboxgl.accessToken = 'pk.eyJ1IjoibWVndXNldyIsImEiOiJjbWlmNmNhNDMwOXhmM2tzOXcxOWR4ejk3In0.pQD9ydhii7vFLSjupm9Hmg';
 
-            new mapboxgl.Marker(marcadorElem)
-                .setLngLat([coordOrigen.longitud, coordOrigen.latitud])
+    this.mapa = new mapboxgl.Map({
+        container: this.contenedor,
+        style:     'mapbox://styles/mapbox/streets-v12',
+        center:    [coordOrigen.longitud, coordOrigen.latitud],
+        zoom:      12
+    });
+
+    const marcadoresCapturados = marcadores;   // captura explícita para el closure
+
+    this.mapa.on('load', () => {
+        this.mapa.resize();
+
+        marcadoresCapturados.forEach((m) => {
+            new mapboxgl.Marker()
+                .setLngLat([m.longitud, m.latitud])
+                .setPopup(new mapboxgl.Popup({ offset: 25 }).setText(m.nombre))
                 .addTo(this.mapa);
-
-            if (coordenadasLinea.length > 1) {
-                this.mapa.addSource('ruta-linea', {
-                    type: 'geojson',
-                    data: {
-                        type: 'Feature',
-                        properties: {},
-                        geometry: { type: 'LineString', coordinates: coordenadasLinea }
-                    }
-                });
-                this.mapa.addLayer({
-                    id:     'ruta-linea-capa',
-                    type:   'line',
-                    source: 'ruta-linea',
-                    layout: { 'line-join': 'round', 'line-cap': 'round' },
-                    paint:  { 'line-color': '#1565C0', 'line-width': 4 }
-                });
-            }
         });
-    }
+
+        if (coordenadasLinea.length > 1) {
+            this.mapa.addSource('ruta-linea', {
+                type: 'geojson',
+                data: {
+                    type: 'Feature',
+                    properties: {},
+                    geometry: { type: 'LineString', coordinates: coordenadasLinea }
+                }
+            });
+            this.mapa.addLayer({
+                id:     'ruta-linea-capa',
+                type:   'line',
+                source: 'ruta-linea',
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint:  { 'line-color': '#1565C0', 'line-width': 4 }
+            });
+        }
+    });}
 }
 
 $(document).ready(() => {

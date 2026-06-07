@@ -1,4 +1,3 @@
-
 /* Clara Fernández Pérez UO299971 */
 /* Estilos disposición del proyecto Guipuzcoa-Desktop*/
 
@@ -8,8 +7,8 @@ nav{
     flex: 1;
     justify-content: flex-end;
     align-items: center;
-    gap: 2em;
-    padding-left: 2em;
+    gap: 2em; /* Redefinido en @media (min-width: 300px) and (max-width: 799px): gap: 0.5em */
+    padding-left: 2em; /* Redefinido en @media (min-width: 300px) and (max-width: 799px): padding-left: 0 */
 }
 
 /* Especifidad 001 */
@@ -18,13 +17,13 @@ header{
     flex: 1;
     justify-content: space-between;
     align-items: center;
-    padding: 0 1em;
+    padding: 0 1em; /* Redefinido en @media (min-width: 300px) and (max-width: 799px): padding: 1em 0 - afecta padding-top, padding-bottom, padding-left y padding-right */
 }
 
 /* Especifidad 002 */
 section > div {
     width: 100%;
-    height: 30rem;
+    height: 30rem; /* Redefinido en @media (min-width: 300px) and (max-width: 799px): height: 20rem */
 }
 
 /* Especifidad 001 */
@@ -43,14 +42,14 @@ li a {
     /* Especifidad 001 */
     nav{
         flex-direction: column;
-        gap: 0.5em;
-        padding-left: 0;
+        gap: 0.5em; /* Redefinición controlada de gap (column-gap y row-gap): valor modificado respecto al estilo base (2em) para pantallas pequeñas */
+        padding-left: 0; /* Redefinición controlada de padding-left: valor modificado respecto al estilo base (2em) para pantallas pequeñas */
     }
     
     /* Especifidad 001 */
     header{
         flex-direction: column;
-        padding: 1em 0;
+        padding: 1em 0; /* Redefinición controlada de padding-top, padding-bottom, padding-left y padding-right: valor modificado respecto al estilo base (0 1em) para pantallas pequeñas */
     }
 
     /* Especifidad 002 */
@@ -79,7 +78,7 @@ li a {
 
     /* Especifidad 002*/
     section > div {
-        height: 20rem;
+        height: 20rem; /* Redefinición controlada de height: valor modificado respecto al estilo base (30rem) para pantallas pequeñas */
     }
 
     figure img {
