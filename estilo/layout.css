@@ -32,7 +32,10 @@ li {
     margin: 0.5em 0;
 } 
 
-
+/* Especifidad 002 */
+li a {
+    word-break: break-all;
+}
 
 @media (min-width: 300px) and (max-width: 799px) {
     /* Especifidad 001 */
