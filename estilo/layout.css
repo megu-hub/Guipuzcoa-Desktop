@@ -33,12 +33,6 @@ li {
 } 
 
 
-/* Especifidad 002 */
-figure img {
-    width: 100%;
-    height: auto;
-    display: block;
-}
 
 @media (min-width: 300px) and (max-width: 799px) {
     /* Especifidad 001 */
