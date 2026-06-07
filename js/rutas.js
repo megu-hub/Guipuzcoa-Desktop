@@ -204,7 +204,7 @@ class ConstructorHTML {
 
     _crearSeccionMapa(ruta) {
         const $sec            = $("<section>");
-        const $mapaContenedor = $("<div>").addClass("mapa-ruta");
+        const $mapaContenedor = $("<div>");
 
         $sec.append($("<h4>").text("Planimetría (Mapa KML)"));
         $sec.append($mapaContenedor);
@@ -239,7 +239,7 @@ class ConstructorHTML {
                 const docSVG  = new DOMParser().parseFromString(contenido, "image/svg+xml");
                 const svgElem = docSVG.documentElement;
                 if (!svgElem.querySelector("parsererror")) {
-                    svgElem.setAttribute("width",  "50%");
+                    svgElem.setAttribute("width",  "100%");
                     svgElem.removeAttribute("height");
                     $contenedor.empty().append(svgElem);
                 }
