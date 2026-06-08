@@ -81,13 +81,16 @@ li a {
         height: 20rem; /* Redefinición controlada de height: valor modificado respecto al estilo base (30rem) para pantallas pequeñas */
     }
 
+    /* Especifidad 002*/
     figure img {
         width: 100%;
         height: auto;
     }
 
+    /* Especifidad 003*/
     section picture img {
         max-width: 100%;
         height: auto;
+        justify-content: center;
     }
 }
